@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Boundary Questionnaire</title>
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --card: #ffffff;
+    --ink: #2c2c2a;
+    --muted: #6b6a63;
+    --border: #e2e0d8;
+    --accent: #534ab7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 660px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+  header { text-align: center; margin-bottom: 2rem; position: relative; }
+  .start-over-btn {
+    position: absolute; top: 0; right: 0;
+    padding: 6px 14px; font-size: 12px; font-weight: 500;
+    border-radius: 8px; border: 1px solid var(--border); background: #fff; color: var(--muted);
+    cursor: pointer;
+  }
+  .start-over-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .start-over-btn.hidden { display: none !important; }
+  h1 { font-size: 26px; font-weight: 600; margin: 0 0 0.5rem; }
+  .subtitle { color: var(--muted); font-size: 15px; margin: 0; }
+  .progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin-bottom: 2rem; }
+  .progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.2s ease; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem 1.5rem; margin-bottom: 1.25rem; }
+  .cat-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); margin: 0 0 0.6rem; }
+  .question-text { font-size: 17px; font-weight: 500; margin: 0 0 1.25rem; }
+  .scale { display: flex; flex-direction: column; gap: 8px; }
+  .scale button {
+    padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border);
+    background: #fff; color: var(--ink); font-size: 15px; text-align: left; cursor: pointer; transition: all 0.15s ease;
+  }
+  .scale button:hover { border-color: var(--accent); }
+  .scale button.selected { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+  .nav-btn { padding: 10px 20px; border-radius: 8px; border: 1px solid var(--border); background: #fff; font-size: 14px; font-weight: 500; cursor: pointer; }
+  .nav-btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .q-count { font-size: 13px; color: var(--muted); }
+  .result-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; margin-bottom: 1rem; }
+  .result-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; gap: 12px; }
+  .result-title { font-size: 16px; font-weight: 600; }
+  .result-score { font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+  .bar-track { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin: 10px 0 12px; position: relative; }
+  .bar-fill { height: 100%; border-radius: 4px; position: absolute; }
+  .bar-mid { position: absolute; left: 50%; top: -3px; bottom: -3px; width: 1px; background: var(--muted); opacity: 0.4; }
+  .result-desc { font-size: 14px; color: var(--muted); margin: 0; }
+  .section-heading { font-size: 20px; font-weight: 600; margin: 2rem 0 1rem; }
+  .section-heading:first-child { margin-top: 0; }
+  .summary-card { background: #eeedfe; border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .summary-card p { margin: 0 0 0.75rem; font-size: 14.5px; }
+  .summary-card p:last-child { margin-bottom: 0; }
+  .intro-btn { display: block; width: 100%; padding: 14px; border-radius: 10px; border: none; background: var(--accent); color: #fff; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 1.5rem; }
+  .restart-btn { display: block; margin: 2rem auto 0; padding: 10px 22px; border-radius: 8px; border: 1px solid var(--border); background: #fff; font-size: 14px; cursor: pointer; }
+  .hidden { display: none !important; }
+  .disclaimer { font-size: 12px; color: var(--muted); text-align: center; margin-top: 2rem; }
+  .legend { font-size: 12px; color: var(--muted); text-align: center; margin-bottom: 1.5rem; }
+  .diagram-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 1rem 1.25rem; margin-bottom: 1.5rem; text-align: center; }
+  .diagram-stage { position: relative; width: 100%; max-width: 420px; aspect-ratio: 1 / 1; margin: 0 auto; }
+  .diagram-stage > svg.ring-svg { width: 100%; height: auto; display: block; }
+  .diagram-avatar-abstract, .diagram-avatar-canvas { position: absolute; top: 50%; left: 50%; width: 82.5%; aspect-ratio: 1/1; transform: translate(-50%, -50%); }
+  .diagram-avatar-abstract svg { width: 100%; height: 100%; display: block; }
+  .diagram-legend { display: flex; justify-content: center; gap: 18px; margin-top: 0.75rem; flex-wrap: wrap; }
+  .diagram-legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+  .diagram-legend-swatch { width: 22px; height: 6px; border-radius: 3px; flex-shrink: 0; }
+  .live-face-wrap { display: flex; justify-content: center; margin-bottom: 1.25rem; }
+  .live-face-stage { position: relative; width: 270px; height: 270px; }
+  #live-face-abstract, #live-face-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  #live-face-abstract svg { width: 100%; height: 100%; display: block; }
+  .photo-section { margin: 1.25rem 0; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+  .photo-stage-instruction { font-size: 13px; font-weight: 500; margin: 0 0 0.75rem; color: var(--ink); }
+  .calibration-instruction { font-size: 13px; font-weight: 500; margin: 1rem 0 0.5rem; }
+  .calibration-wrap { position: relative; display: inline-block; max-width: 720px; width: 100%; cursor: crosshair; border-radius: 8px; overflow: hidden; }
+  .calibration-wrap img { width: 100%; display: block; }
+  .calibration-wrap svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  #calibration-reset { margin-top: 0.75rem; font-size: 13px; padding: 8px 16px; }
+  .photo-buttons { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .photo-buttons label.nav-btn { display: inline-block; }
+  .camera-wrap { max-width: 720px; border-radius: 8px; overflow: hidden; margin-top: 1rem; background: #000; }
+  .camera-wrap video { width: 100%; display: block; transform: scaleX(-1); }
+  .camera-controls { display: flex; gap: 10px; margin-top: 0.75rem; }
+  .camera-controls button { font-size: 13px; padding: 8px 16px; }
+  .camera-error { font-size: 13px; color: #993c1d; margin-top: 0.5rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <button type="button" class="start-over-btn hidden" id="start-over-btn" onclick="confirmStartOver()">Start over</button>
+    <h1>The Boundary Questionnaire</h1>
+    <p class="subtitle">A self-reflection on where your boundaries hold, where they thin out, and where they may be missing.</p>
+  </header>
+
+  <div id="intro-screen" class="card">
+    <p style="margin: 0 0 1rem;">This questionnaire has 135 statements about your mind, heart, social life, sense of meaning, and body. Answer honestly with how often each one is true for you.</p>
+    <p style="margin: 0; color: var(--muted); font-size: 14px;">There's no right answer. Extreme answers (Always / Never) and moderate ones (Often / Seldom) reveal different things than a balanced Sometimes &mdash; that's the point.</p>
+
+    <div class="photo-section">
+      <p style="font-size: 14px; color: var(--muted); margin: 0 0 0.75rem;">Optional: capture a sad face and a happy face, and we'll morph between them as you answer.</p>
+      <p id="photo-stage-instruction" class="photo-stage-instruction"></p>
+      <div class="photo-buttons" id="photo-buttons-row">
+        <button type="button" class="nav-btn" id="camera-btn" onclick="startCamera()">Take a photo</button>
+        <label class="nav-btn" for="photo-input">Upload a photo</label>
+        <input type="file" id="photo-input" accept="image/*" style="display:none;">
+      </div>
+
+      <div id="camera-area" class="hidden">
+        <div class="camera-wrap">
+          <video id="camera-video" autoplay playsinline muted></video>
+        </div>
+        <div class="camera-controls">
+          <button type="button" class="nav-btn primary" onclick="capturePhoto()">Capture</button>
+          <button type="button" class="nav-btn" onclick="cancelCamera()">Cancel</button>
+        </div>
+        <p id="camera-error" class="camera-error hidden"></p>
+      </div>
+      <canvas id="camera-canvas" style="display:none;"></canvas>
+
+      <div id="calibration-area" class="hidden">
+        <p id="calibration-instruction" class="calibration-instruction"></p>
+        <div id="calibration-wrap" class="calibration-wrap">
+          <img id="calibration-img" alt="Photo being calibrated">
+          <svg id="calibration-markers" viewBox="0 0 100 100" preserveAspectRatio="none"></svg>
+        </div>
+      </div>
+      <button type="button" class="nav-btn" id="calibration-reset" onclick="resetPhotoFlow()">Start over</button>
+    </div>
+
+    <button class="intro-btn" onclick="startQuiz()">Start</button>
+  </div>
+
+  <div id="quiz-screen" class="hidden">
+    <div class="live-face-wrap">
+      <div class="live-face-stage">
+        <div id="live-face-abstract"></div>
+        <canvas id="live-face-canvas" class="hidden"></canvas>
+      </div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="card">
+      <p class="question-text" id="q-text"></p>
+      <div class="scale" id="q-scale"></div>
+    </div>
+    <div class="nav-row">
+      <button class="nav-btn" id="back-btn" onclick="goBack()">Back</button>
+      <span class="q-count" id="q-count"></span>
+      <button class="nav-btn primary" id="next-btn" onclick="goNext()" disabled>Next</button>
+    </div>
+  </div>
+
+  <div id="results-screen" class="hidden">
+    <div id="diagram-container"></div>
+    <div id="results-container"></div>
+    <button class="restart-btn" onclick="restart()">Retake questionnaire</button>
+    <p class="disclaimer">This is a self-reflection tool, not a clinical assessment. If what surfaces here feels heavy or overwhelming, consider talking with a therapist or counselor.</p>
+  </div>
+</div>
+
+<script>
+// ---------- DATA ----------
+// domain: mind | heart | social | spirit | body
+// style: I | C | O
+// type: 'w' (wall-making) | 'h' (hole-making) | 'f' (body frequency item, no wall/hole polarity)
+
+const psychQuestions = [
+// MIND (I)
+["believe others deserve more out of life than I do","mind","I","w"],
+["think I am different from other people","mind","I","w"],
+["believe no one will ever be there for me","mind","I","w"],
+["tell myself no one can be trusted","mind","I","w"],
+["daydream, get distracted or withdraw when in company","mind","I","w"],
+["interpret the behavior of others to pertain to me","mind","I","h"],
+["think accomplishments or achievements are what matters","mind","I","h"],
+["think helping others is what really matters in life","mind","I","h"],
+["think I am invisible on one hand and judged on the other","mind","I","h"],
+["think it is useless to stand up for myself","mind","I","h"],
+// HEART (I)
+["feel cut off, isolated or unrecognized","heart","I","w"],
+["feel unimportant, without substance compared to others","heart","I","w"],
+["feel uncomfortable being fussed over or acknowledged","heart","I","w"],
+["feel what matters to me does not matter to others","heart","I","w"],
+["feel I need no one","heart","I","w"],
+["feel my concerns or problems are not all that important","heart","I","w"],
+["wish I was like everyone else","heart","I","h"],
+["trust 'just anyone'","heart","I","h"],
+["give as much as I can for the sake of giving","heart","I","h"],
+["find myself needing to be wanted in my relationships","heart","I","h"],
+// SOCIAL (I)
+["find myself, socially, 'on the outside looking in'","social","I","w"],
+["withdraw from difficult people and situations","social","I","w"],
+["seem to fail in my attempts to connect with others","social","I","w"],
+["feel overwhelmed by the status or strengths of others","social","I","w"],
+["want to belong with other people","social","I","h"],
+["find myself where I don't belong","social","I","h"],
+["find myself apologizing or explaining what I mean","social","I","h"],
+["anticipate and fulfill the desires of others before being asked","social","I","h"],
+["find myself with no space of my own","social","I","h"],
+["find myself pleasing others at my expense","social","I","h"],
+// SPIRIT (I)
+["feel no matter what I do, I am doomed","spirit","I","w"],
+["feel I am unlike other people","spirit","I","w"],
+["feel alienated and apart from the world","spirit","I","w"],
+["find myself regretting missed opportunities","spirit","I","w"],
+["resist others' explanations of religion or spirituality","spirit","I","w"],
+["question the meaning of it all","spirit","I","h"],
+["believe good things do not last","spirit","I","h"],
+["feel I am on this earth for a reason","spirit","I","h"],
+["am preoccupied by illness or death","spirit","I","h"],
+["experience the world as a hostile place","spirit","I","h"],
+// MIND (C)
+["believe that what I don't know won't hurt me","mind","C","w"],
+["believe I can only trust myself","mind","C","w"],
+["think 'I can't do this' even before I try","mind","C","w"],
+["find myself thinking I should be in control of all aspects of my life","mind","C","w"],
+["find myself unable to let go of an issue or a grudge","mind","C","h"],
+["live in judgment of myself and others","mind","C","h"],
+["behave 'as if' I have no control over my life","mind","C","h"],
+["behave 'as if' I were responsible for other people's happiness","mind","C","h"],
+["let others define or describe my reality","mind","C","h"],
+["find myself having to assert myself","mind","C","h"],
+// HEART (C)
+["feel depending on others is to invite disappointment","heart","C","w"],
+["dread change in my routine and cling to the familiar","heart","C","w"],
+["prefer to lie rather than face a potentially upsetting situation","heart","C","w"],
+["view or present my accomplishments as 'no big deal'","heart","C","w"],
+["find myself 'shutting people out of my heart'","heart","C","w"],
+["get very upset if others break the rules","heart","C","h"],
+["feel hurt when favors or debts are not repaid","heart","C","h"],
+["prefer 'getting even' to being angry","heart","C","h"],
+["feel plagued by indecision or self-doubt","heart","C","h"],
+["get very upset when scolded, frustrated or thwarted","heart","C","h"],
+// SOCIAL (C)
+["find myself testing and failing others, without their knowledge","social","C","w"],
+["believe people should stick to 'their own kind'","social","C","w"],
+["follow the 'path of least resistance' in a conflict","social","C","w"],
+["find myself surrounded by disagreement or crisis","social","C","w"],
+["act in passive ways with my superiors","social","C","h"],
+["find myself acting in seductive ways to get my needs met","social","C","h"],
+["let others direct and influence my life","social","C","h"],
+["find myself cleaning up other people's messes","social","C","h"],
+["feel obligated to others","social","C","h"],
+["find myself managing other people's thoughts and feelings","social","C","h"],
+// SPIRIT (C)
+["think that planning ahead averts disaster","spirit","C","w"],
+["believe that life is 'short, nasty and brutish'","spirit","C","w"],
+["believe when I stand up someone knocks me down","spirit","C","w"],
+["worry about making the wrong decision","spirit","C","w"],
+["welcome change and conflict in my life","spirit","C","h"],
+["believe I am responsible for my lot in life","spirit","C","h"],
+["find myself worrying about my direction or goal in life","spirit","C","h"],
+["feel controlled by accidental happenings or events","spirit","C","h"],
+["find myself 'going with the flow'","spirit","C","h"],
+["believe what goes around, comes around","spirit","C","h"],
+// MIND (O)
+["avoid closeness fearing it will lead to pain or disappointment","mind","O","w"],
+["hide my true feelings lest I upset others","mind","O","w"],
+["weigh carefully the consequences of my actions","mind","O","w"],
+["avoid saying 'no' because I fear unpleasant consequences","mind","O","w"],
+["believe others will not anticipate or fulfill my needs","mind","O","w"],
+["think showing feelings is either useless or dangerous","mind","O","w"],
+["strive to act as a 'good' person should","mind","O","h"],
+["give myself or others a second chance","mind","O","h"],
+["experience feedback as an attack or a demand to change","mind","O","h"],
+["value other people's opinions over my own","mind","O","h"],
+// HEART (O)
+["crave yet fear intimacy","heart","O","w"],
+["avoid feeling my bad or uncomfortable feelings","heart","O","w"],
+["hide my anger when I think I am being used or abused","heart","O","w"],
+["hide my shortcomings and my vulnerabilities","heart","O","w"],
+["feel sad, hurt or unloved when I don't get the closeness I expect","heart","O","h"],
+["find myself there for everyone, while no one is there for me","heart","O","h"],
+["become sexual more for my partner than for myself","heart","O","h"],
+["interact on an intimate level from the first meeting","heart","O","h"],
+["find myself concerned about rejection, ridicule or abandonment","heart","O","h"],
+["find myself unable to tolerate other people's pain or anger","heart","O","h"],
+// SOCIAL (O)
+["find myself answering a question with a question","social","O","w"],
+["pretend I care less than I do about how others feel about me","social","O","w"],
+["am more critical of loved ones than of strangers","social","O","w"],
+["suspect the motives of those who approach me for friendship","social","O","w"],
+["second guess what others expect from me and act it out","social","O","w"],
+["believe others know what I need but ignore it on purpose","social","O","w"],
+["know better what I need when I am alone, than in company","social","O","h"],
+["find myself self-disclosing and regretting it later","social","O","h"],
+["find myself depleted from taking care of others","social","O","h"],
+["go to great lengths to get others to like me","social","O","h"],
+// SPIRIT (O)
+["think life is a problem to be solved, not to be enjoyed","spirit","O","w"],
+["believe 'forgiveness' is 'forgetting'","spirit","O","w"],
+["find myself wishing for 'a map of life'","spirit","O","w"],
+["doubt anyone can really know another","spirit","O","w"],
+["believe the 'truth shall set you free'","spirit","O","h"],
+["give up easily","spirit","O","h"],
+["feel watched, evaluated and judged","spirit","O","h"],
+["think I will be held accountable for my emotions","spirit","O","h"],
+["believe 'love heals all'","spirit","O","h"],
+["worry about not being loved by others for who I am","spirit","O","h"],
+];
+
+const bodyQuestions = [
+["suffer from skin-related disorders or difficulties","body","I","f"],
+["suffer from respiratory disorders or difficulties","body","I","f"],
+["suffer from allergies, rashes or acne","body","I","f"],
+["suffer from eye, ear, nose or mouth disorders or difficulties","body","I","f"],
+["suffer from digestive disorders or difficulties","body","I","f"],
+["suffer from muscle, joint, skeletal or spinal ailments or disorders","body","C","f"],
+["suffer from erratic sleeping or eliminating patterns","body","C","f"],
+["suffer from headaches","body","C","f"],
+["clench or grit my teeth","body","C","f"],
+["experience difficulty with memory or concentration","body","C","f"],
+["suffer from heart-related ailments or difficulties","body","O","f"],
+["suffer from reproductive-organ related ailments or difficulties","body","O","f"],
+["suffer from sexual inhibitions or difficulties","body","O","f"],
+["suffer from circulatory disorders or difficulties","body","O","f"],
+["use substances or behaviors to control physical or emotional pain","body","O","f"],
+];
+
+const allQuestions = psychQuestions.concat(bodyQuestions).map((q, i) => ({
+  id: i, text: q[0], domain: q[1], style: q[2], type: q[3]
+}));
+
+const domainNames = { mind: "Mind", heart: "Heart", social: "Social", spirit: "Spirit", body: "Body" };
+const domainOrder = ["mind","heart","social","spirit","body"];
+const styleOrder = ["I","C","O"];
+
+const answerValues = ["Always","Often","Sometimes","Seldom","Never"];
+
+function scoreValue(answer, type) {
+  const idx = answerValues.indexOf(answer); // 0..4
+  if (type === "w") return [2,1,0,-1,-2][idx];
+  if (type === "h") return [-2,-1,0,1,2][idx];
+  if (type === "f") return [4,3,2,1,0][idx]; // frequency, higher = more symptomatic
+  return 0;
+}
+
+// ---------- PROFILE TEXT ----------
+const domainProfiles = {
+  mind: {
+    wall: "Your thinking shows a rigid boundary: black-and-white beliefs, self-reliance to the point of isolation, or dismissing others' input protect you, but they can also cut you off from connection and growth.",
+    hole: "Your thinking shows a permeable boundary: you may absorb others' opinions as your own, doubt your own judgment, or believe your needs don't matter, leaving your inner world unprotected from outside influence.",
+    normalized: "Your thinking shows a flexible, functional boundary: you can hold your own beliefs while staying open to other perspectives without losing yourself."
+  },
+  heart: {
+    wall: "Emotionally, you tend to wall off: numbing, minimizing or hiding feelings to avoid vulnerability, which protects you from hurt but also from closeness.",
+    hole: "Emotionally, you tend to have holes: feelings spill over easily, you may take on others' emotions as your own, or feel responsible for others' happiness at your own expense.",
+    normalized: "Emotionally, you show a functional boundary: you can feel and express emotion without being flooded by it or shutting it down entirely."
+  },
+  social: {
+    wall: "Socially, you tend to wall off: withdrawing, testing others, or keeping people at a distance, which offers safety but can also produce isolation.",
+    hole: "Socially, you tend to have holes: over-accommodating, losing yourself to please others, or struggling to say no, leaving you vulnerable to being overlooked or used.",
+    normalized: "Socially, you show a functional boundary: you can connect and cooperate with others while still holding your own space."
+  },
+  spirit: {
+    wall: "In terms of meaning and outlook, you tend toward walls: rigid beliefs about fate, control, or worth that protect you from disappointment but can foreclose hope or wonder.",
+    hole: "In terms of meaning and outlook, you tend toward holes: feeling at the mercy of chance, doubt, or hostility in the world, without a stable sense of purpose to anchor you.",
+    normalized: "In terms of meaning and outlook, you show a functional boundary: open to life's uncertainty while holding a stable sense of purpose."
+  }
+};
+
+const bodyProfiles = {
+  I: {
+    minimal: "Few skin, respiratory, sensory or digestive symptoms show up for you — your body isn't carrying much visible strain here.",
+    mild: "You experience occasional skin, respiratory, sensory or digestive symptoms — worth noting, but not a dominant pattern.",
+    moderate: "Skin, respiratory, sensory or digestive symptoms show up fairly often for you — your body may be registering boundary stress here.",
+    significant: "Skin, respiratory, sensory or digestive symptoms show up frequently for you — a strong signal that boundary stress may be manifesting somatically."
+  },
+  C: {
+    minimal: "Few musculoskeletal, sleep, headache or concentration symptoms show up for you.",
+    mild: "You experience occasional musculoskeletal, sleep, headache or concentration symptoms — worth noting, but not a dominant pattern.",
+    moderate: "Musculoskeletal, sleep, headache or concentration symptoms show up fairly often for you — your body may be registering boundary stress here.",
+    significant: "Musculoskeletal, sleep, headache or concentration symptoms show up frequently for you — a strong signal that boundary stress may be manifesting somatically."
+  },
+  O: {
+    minimal: "Few cardiovascular, reproductive, sexual or circulatory symptoms show up for you.",
+    mild: "You experience occasional cardiovascular, reproductive, sexual or circulatory symptoms, or occasional use of substances/behaviors to manage pain — worth noting, but not a dominant pattern.",
+    moderate: "Cardiovascular, reproductive, sexual or circulatory symptoms (or use of substances/behaviors to manage pain) show up fairly often for you.",
+    significant: "Cardiovascular, reproductive, sexual or circulatory symptoms (or use of substances/behaviors to manage pain) show up frequently for you — a strong signal that boundary stress may be manifesting somatically, worth discussing with a healthcare provider."
+  }
+};
+
+function leanCategory(avg) {
+  if (avg <= -0.4) return "hole";
+  if (avg >= 0.4) return "wall";
+  return "normalized";
+}
+function leanStrength(avg) {
+  const a = Math.abs(avg);
+  if (a >= 1.2) return "strong";
+  if (a >= 0.4) return "moderate";
+  return "mild";
+}
+function bodyBucket(avg) {
+  if (avg < 1) return "minimal";
+  if (avg < 2) return "mild";
+  if (avg < 3) return "moderate";
+  return "significant";
+}
+
+// ---------- BOUNDARY DIAGRAM ----------
+function polarPoint(cx, cy, r, angleDeg) {
+  const rad = (angleDeg - 90) * Math.PI / 180;
+  return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+}
+function describeArc(cx, cy, r, startAngle, endAngle) {
+  const start = polarPoint(cx, cy, r, endAngle);
+  const end = polarPoint(cx, cy, r, startAngle);
+  const largeArcFlag = (endAngle - startAngle) <= 180 ? "0" : "1";
+  return ["M", start.x.toFixed(2), start.y.toFixed(2), "A", r, r, 0, largeArcFlag, 0, end.x.toFixed(2), end.y.toFixed(2)].join(" ");
+}
+// ---------- PHOTO + CALIBRATION (sad / happy pair, morphed by score) ----------
+let sadPhoto = { dataUrl: null, calib: null, img: null };
+let happyPhoto = { dataUrl: null, calib: null, img: null };
+let photoStage = "sad"; // "sad" | "happy" | "done"
+let pendingPhotoDataUrl = null;
+let calibStep = 0;
+let calibTemp = {};
+const calibInstructions = ["Tap between your eyebrows", "Tap the center of your mouth"];
+const stageMessages = {
+  sad: "Step 1 of 2: make a sad face, then take or upload a photo.",
+  happy: "Step 2 of 2: now make a happy face, then take or upload a photo.",
+  done: "Both photos are ready \u2014 they'll morph based on your answers."
+};
+
+function updateStageLabel() {
+  document.getElementById("photo-stage-instruction").textContent = stageMessages[photoStage];
+}
+updateStageLabel();
+
+document.getElementById("photo-input").addEventListener("change", function (e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function (ev) {
+    loadPhotoForCalibration(ev.target.result);
+  };
+  reader.readAsDataURL(file);
+});
+
+function loadPhotoForCalibration(dataUrl) {
+  pendingPhotoDataUrl = dataUrl;
+  calibStep = 0;
+  calibTemp = {};
+  document.getElementById("calibration-img").src = dataUrl;
+  document.getElementById("calibration-markers").innerHTML = "";
+  document.getElementById("calibration-instruction").textContent = calibInstructions[0];
+  document.getElementById("calibration-area").classList.remove("hidden");
+}
+
+let cameraStream = null;
+
+function startCamera() {
+  const errorEl = document.getElementById("camera-error");
+  errorEl.classList.add("hidden");
+
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    errorEl.textContent = "Camera access isn't available in this browser. Try uploading a photo instead.";
+    errorEl.classList.remove("hidden");
+    return;
+  }
+
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" }, audio: false })
+    .then(function (stream) {
+      cameraStream = stream;
+      const video = document.getElementById("camera-video");
+      video.srcObject = stream;
+      document.getElementById("camera-area").classList.remove("hidden");
+    })
+    .catch(function (err) {
+      errorEl.textContent = "Couldn't access the camera (" + err.message + "). Try uploading a photo instead.";
+      errorEl.classList.remove("hidden");
+    });
+}
+
+function capturePhoto() {
+  const video = document.getElementById("camera-video");
+  const canvas = document.getElementById("camera-canvas");
+  const w = video.videoWidth || 320;
+  const h = video.videoHeight || 240;
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext("2d");
+  // mirror the capture to match the mirrored preview (selfie convention)
+  ctx.translate(w, 0);
+  ctx.scale(-1, 1);
+  ctx.drawImage(video, 0, 0, w, h);
+  const dataUrl = canvas.toDataURL("image/png");
+
+  stopCamera();
+  document.getElementById("camera-area").classList.add("hidden");
+  loadPhotoForCalibration(dataUrl);
+}
+
+function cancelCamera() {
+  stopCamera();
+  document.getElementById("camera-area").classList.add("hidden");
+}
+
+function stopCamera() {
+  if (cameraStream) {
+    cameraStream.getTracks().forEach(function (t) { t.stop(); });
+    cameraStream = null;
+  }
+}
+
+document.getElementById("calibration-wrap").addEventListener("click", function (e) {
+  if (calibStep >= 2) return;
+  const rect = this.getBoundingClientRect();
+  const x = (e.clientX - rect.left) / rect.width;
+  const y = (e.clientY - rect.top) / rect.height;
+
+  if (calibStep === 0) { calibTemp.browX = x; calibTemp.browY = y; }
+  else { calibTemp.mouthX = x; calibTemp.mouthY = y; }
+
+  const marker = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  marker.setAttribute("cx", (x * 100).toFixed(1));
+  marker.setAttribute("cy", (y * 100).toFixed(1));
+  marker.setAttribute("r", "2.5");
+  marker.setAttribute("fill", "#534AB7");
+  document.getElementById("calibration-markers").appendChild(marker);
+
+  calibStep++;
+  if (calibStep < 2) {
+    document.getElementById("calibration-instruction").textContent = calibInstructions[calibStep];
+    return;
+  }
+
+  const finishedCalib = { browX: calibTemp.browX, browY: calibTemp.browY, mouthX: calibTemp.mouthX, mouthY: calibTemp.mouthY };
+  const img = new Image();
+  img.src = pendingPhotoDataUrl;
+
+  if (photoStage === "sad") {
+    sadPhoto = { dataUrl: pendingPhotoDataUrl, calib: finishedCalib, img: img };
+    photoStage = "happy";
+  } else {
+    happyPhoto = { dataUrl: pendingPhotoDataUrl, calib: finishedCalib, img: img };
+    photoStage = "done";
+  }
+
+  document.getElementById("calibration-area").classList.add("hidden");
+  document.getElementById("photo-input").value = "";
+  updateStageLabel();
+});
+
+function resetPhotoFlow() {
+  sadPhoto = { dataUrl: null, calib: null, img: null };
+  happyPhoto = { dataUrl: null, calib: null, img: null };
+  photoStage = "sad";
+  pendingPhotoDataUrl = null;
+  calibStep = 0;
+  calibTemp = {};
+  document.getElementById("calibration-area").classList.add("hidden");
+  document.getElementById("calibration-markers").innerHTML = "";
+  document.getElementById("photo-input").value = "";
+  updateStageLabel();
+}
+
+function hasPhotoPair() {
+  return !!(sadPhoto.calib && sadPhoto.img && happyPhoto.calib && happyPhoto.img);
+}
+
+// Draws one photo, transformed via a similarity transform so its own eyebrow/mouth
+// calibration points land on the canvas's canonical anchor points, at the given alpha.
+function drawTransformedPhoto(ctx, photo, canW, canH, alpha) {
+  if (!photo.img || !photo.img.complete || !photo.img.naturalWidth || alpha <= 0.001) return;
+  const calib = photo.calib;
+  const iw = photo.img.naturalWidth, ih = photo.img.naturalHeight;
+  const bx = calib.browX * iw, by = calib.browY * ih;
+  const mx = calib.mouthX * iw, my = calib.mouthY * ih;
+  const vx = mx - bx, vy = my - by;
+  const srcLen = Math.max(1, Math.hypot(vx, vy));
+  const srcAngle = Math.atan2(vy, vx);
+
+  const canBrowX = canW * 0.5, canBrowY = canH * 0.32;
+  const canMouthX = canW * 0.5, canMouthY = canH * 0.62;
+  const dvx = canMouthX - canBrowX, dvy = canMouthY - canBrowY;
+  const dstLen = Math.hypot(dvx, dvy);
+  const dstAngle = Math.atan2(dvy, dvx);
+
+  const scale = dstLen / srcLen;
+  const rotation = dstAngle - srcAngle;
+
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.translate(canBrowX, canBrowY);
+  ctx.rotate(rotation);
+  ctx.scale(scale, scale);
+  ctx.translate(-bx, -by);
+  ctx.drawImage(photo.img, 0, 0, iw, ih);
+  ctx.restore();
+}
+
+function roundedRectPath(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+// Cross-fades the sad/happy photos (aligned by their calibration points) based on score,
+// drawing the result plus a boundary-styled frame onto the given canvas.
+function drawMorphedFace(canvas, score, size) {
+  size = size || 220;
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext("2d");
+  const s = Math.max(-2, Math.min(2, score));
+  const t = 1 - Math.abs(s) / 2; // 1 = fully happy (normalized, score near 0), 0 = fully sad (either extreme)
+
+  const pad = size * 0.02;
+  ctx.clearRect(0, 0, size, size);
+  ctx.save();
+  roundedRectPath(ctx, pad, pad, size - 2 * pad, size - 2 * pad, size * 0.08);
+  ctx.clip();
+  ctx.fillStyle = "#e2e0d8";
+  ctx.fillRect(0, 0, size, size);
+  drawTransformedPhoto(ctx, sadPhoto, size, size, 1 - t);
+  drawTransformedPhoto(ctx, happyPhoto, size, size, t);
+
+  if (s >= 0) {
+    drawBrickWall(ctx, s, size);
+  } else {
+    drawHole(ctx, -s, size);
+  }
+  ctx.restore();
+}
+
+// A brick wall that builds inward from the edge as wall-lean strengthens, and becomes
+// less transparent (more solid) the thicker it gets. Fully transparent at s=0.
+function drawBrickWall(ctx, wallScore, size) {
+  const w = Math.max(0, Math.min(1, wallScore / 2)); // 0..1
+  if (w <= 0.02) return;
+
+  const thickness = size * (0.06 + w * 0.34); // grows from a sliver to nearly a third of the face
+  const opacity = w; // thin = transparent, thick = opaque
+
+  const brickH = size * 0.05;
+  const brickW = size * 0.11;
+  const brickColor = "#8a3a24";
+  const mortarColor = "#3a2318";
+
+  ctx.save();
+  ctx.globalAlpha = opacity;
+  // clip to the ring between the outer edge and the inward-built wall face (even-odd rule)
+  ctx.beginPath();
+  ctx.rect(0, 0, size, size);
+  ctx.rect(thickness, thickness, size - 2 * thickness, size - 2 * thickness);
+  ctx.clip("evenodd");
+
+  ctx.fillStyle = brickColor;
+  ctx.fillRect(0, 0, size, size);
+
+  ctx.strokeStyle = mortarColor;
+  ctx.lineWidth = Math.max(1, size * 0.006);
+  let row = 0;
+  for (let y = 0; y < size; y += brickH) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(size, y);
+    ctx.stroke();
+    const offset = (row % 2 === 0) ? 0 : brickW / 2;
+    for (let x = -brickW + offset; x < size; x += brickW) {
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x, y + brickH);
+      ctx.stroke();
+    }
+    row++;
+  }
+  ctx.restore();
+}
+
+// A hole punched straight through the face, showing blank white beneath.
+// Grows and becomes more opaque as hole-lean strengthens.
+function drawHole(ctx, holeScore, size) {
+  const h = Math.max(0, Math.min(1, holeScore / 2)); // 0..1
+  if (h <= 0.02) return;
+
+  const radius = size * (0.07 + h * 0.33);
+  const opacity = 0.35 + h * 0.65;
+
+  ctx.save();
+  ctx.globalAlpha = opacity;
+  ctx.fillStyle = "#ffffff";
+  ctx.beginPath();
+  ctx.arc(size / 2, size / 2, radius, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalAlpha = Math.min(1, opacity + 0.15);
+  ctx.strokeStyle = "#c7c5bc";
+  ctx.lineWidth = Math.max(1, size * 0.01);
+  ctx.stroke();
+  ctx.restore();
+}
+
+
+function boundaryScoreForAnswer(type, answerLabel) {
+  if (type === "f") return 2 - scoreValue(answerLabel, "f"); // invert frequency onto the -2..2 boundary scale
+  return scoreValue(answerLabel, type);
+}
+
+// Returns inner SVG markup (no <svg> wrapper) on a fixed 140x140 coordinate space:
+// a detailed face whose expression + surrounding boundary line reflect the wall/hole score.
+function faceInner(score) {
+  const s = Math.max(-2, Math.min(2, score));
+  const cx = 70, cy = 70, headR = 40;
+  const style = boundaryStyleFor(s);
+  const ringWidth = Math.max(3, style.width * 0.55);
+  const ringR = headR + ringWidth / 2 + 6;
+  const ringDash = style.dash === "none" ? "" : `stroke-dasharray="${style.dash}"`;
+
+  const eyeRy = Math.max(2, Math.min(9, 5.5 - 2 * s));
+  const eyeRx = 5;
+  const eyeOffsetX = 15;
+  const eyeY = cy - 6;
+
+  const browBaseY = cy - 22;
+  const innerY = browBaseY + s * 5;
+  const outerY = browBaseY - s * 3;
+
+  const mouthY = cy + 20;
+  const mouthHalfW = 14;
+  const controlOffset = s >= 0 ? (6 - 3 * s) : (6 + 8 * s);
+  const controlY = mouthY + controlOffset;
+
+  let mouth;
+  if (s <= -1.3) {
+    // open, gasping mouth — vulnerability / exposure
+    const openRy = 6 + Math.abs(s + 1.3) * 3;
+    mouth = `<ellipse cx="${cx}" cy="${mouthY + 2}" rx="9" ry="${openRy.toFixed(1)}" fill="#2c2c2a"></ellipse>`;
+  } else {
+    mouth = `<path d="M ${cx - mouthHalfW} ${mouthY} Q ${cx} ${controlY} ${cx + mouthHalfW} ${mouthY}" fill="none" stroke="#2c2c2a" stroke-width="3.5" stroke-linecap="round"></path>`;
+  }
+
+  return `
+    <circle cx="${cx}" cy="${cy}" r="${ringR}" fill="none" stroke="${style.stroke}" stroke-width="${ringWidth.toFixed(1)}" ${ringDash}></circle>
+    <circle cx="${cx}" cy="${cy}" r="${headR}" fill="#e2e0d8"></circle>
+    <line x1="${cx - eyeOffsetX - 8}" y1="${outerY.toFixed(1)}" x2="${cx - eyeOffsetX + 8}" y2="${innerY.toFixed(1)}" stroke="#2c2c2a" stroke-width="3" stroke-linecap="round"></line>
+    <line x1="${cx + eyeOffsetX + 8}" y1="${outerY.toFixed(1)}" x2="${cx + eyeOffsetX - 8}" y2="${innerY.toFixed(1)}" stroke="#2c2c2a" stroke-width="3" stroke-linecap="round"></line>
+    <ellipse cx="${cx - eyeOffsetX}" cy="${eyeY}" rx="${eyeRx}" ry="${eyeRy.toFixed(1)}" fill="#2c2c2a"></ellipse>
+    <ellipse cx="${cx + eyeOffsetX}" cy="${eyeY}" rx="${eyeRx}" ry="${eyeRy.toFixed(1)}" fill="#2c2c2a"></ellipse>
+    ${mouth}
+  `;
+}
+
+function updateLiveFace() {
+  const answered = questions
+    .map((q, i) => (answers[i] === null ? null : boundaryScoreForAnswer(q.type, answers[i])))
+    .filter(v => v !== null);
+  const avg = answered.length ? answered.reduce((a, b) => a + b, 0) / answered.length : 0;
+
+  const abstractEl = document.getElementById("live-face-abstract");
+  const canvasEl = document.getElementById("live-face-canvas");
+  if (hasPhotoPair()) {
+    abstractEl.classList.add("hidden");
+    canvasEl.classList.remove("hidden");
+    drawMorphedFace(canvasEl, avg, 320);
+  } else {
+    canvasEl.classList.add("hidden");
+    abstractEl.classList.remove("hidden");
+    abstractEl.innerHTML = `<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Face showing the emotional impact of your boundary answers so far">${faceInner(avg)}</svg>`;
+  }
+}
+
+
+function boundaryStyleFor(score) {
+  const lean = leanCategory(score);
+  const strength = leanStrength(score);
+  if (lean === "wall") {
+    return strength === "strong"
+      ? { stroke: "#4A1B0C", width: 16, dash: "none", label: "Wall (strong)" }
+      : { stroke: "#993C1D", width: 11, dash: "none", label: "Wall (moderate)" };
+  }
+  if (lean === "hole") {
+    return strength === "strong"
+      ? { stroke: "#378ADD", width: 4, dash: "2,10", label: "Hole (strong)" }
+      : { stroke: "#185FA5", width: 6, dash: "6,7", label: "Hole (moderate)" };
+  }
+  return { stroke: "#0F6E56", width: 8, dash: "none", label: "Normalized" };
+}
+function buildBoundaryDiagram(domainScores, overallScore) {
+  const cx = 200, cy = 200;
+  const ringR = 145;
+  const labelR = 175;
+  const gapDeg = 8;
+  const slotDeg = 360 / domainOrder.length;
+
+  let arcs = "";
+  let labels = "";
+  domainOrder.forEach((domain, i) => {
+    const slotStart = i * slotDeg;
+    const slotEnd = (i + 1) * slotDeg;
+    const arcStart = slotStart + gapDeg / 2;
+    const arcEnd = slotEnd - gapDeg / 2;
+    const style = boundaryStyleFor(domainScores[domain]);
+    const path = describeArc(cx, cy, ringR, arcStart, arcEnd);
+    const dashAttr = style.dash === "none" ? "" : `stroke-dasharray="${style.dash}"`;
+    arcs += `<path d="${path}" fill="none" stroke="${style.stroke}" stroke-width="${style.width}" stroke-linecap="round" ${dashAttr}></path>`;
+
+    const midAngle = (arcStart + arcEnd) / 2;
+    const labelPos = polarPoint(cx, cy, labelR, midAngle);
+    labels += `<text x="${labelPos.x.toFixed(2)}" y="${labelPos.y.toFixed(2)}" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="500" fill="#2c2c2a">${domainNames[domain]}</text>`;
+  });
+
+  return `
+    <svg class="ring-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing a boundary made of walls and holes, one segment per life area">
+      ${arcs}
+      ${labels}
+    </svg>
+  `;
+}
+
+// ---------- STATE ----------
+let questions = [];
+let answers = [];
+let currentIndex = 0;
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function startQuiz() {
+  stopCamera();
+  questions = shuffle(allQuestions);
+  answers = new Array(questions.length).fill(null);
+  currentIndex = 0;
+  document.getElementById("intro-screen").classList.add("hidden");
+  document.getElementById("quiz-screen").classList.remove("hidden");
+  document.getElementById("start-over-btn").classList.remove("hidden");
+  renderQuestion();
+  updateLiveFace();
+}
+
+function renderQuestion() {
+  const q = questions[currentIndex];
+  document.getElementById("q-text").textContent = "I " + q.text;
+  document.getElementById("q-count").textContent = (currentIndex + 1) + " of " + questions.length;
+  document.getElementById("progress-fill").style.width = ((currentIndex) / questions.length * 100) + "%";
+
+  const scaleEl = document.getElementById("q-scale");
+  scaleEl.innerHTML = "";
+  answerValues.forEach(label => {
+    const btn = document.createElement("button");
+    btn.textContent = label;
+    if (answers[currentIndex] === label) btn.classList.add("selected");
+    btn.onclick = () => selectAnswer(label);
+    scaleEl.appendChild(btn);
+  });
+
+  document.getElementById("back-btn").disabled = currentIndex === 0;
+  document.getElementById("next-btn").disabled = answers[currentIndex] === null;
+  document.getElementById("next-btn").textContent = currentIndex === questions.length - 1 ? "See results" : "Next";
+}
+
+function selectAnswer(label) {
+  answers[currentIndex] = label;
+  renderQuestion();
+  updateLiveFace();
+}
+
+function goNext() {
+  if (answers[currentIndex] === null) return;
+  if (currentIndex < questions.length - 1) {
+    currentIndex++;
+    renderQuestion();
+  } else {
+    showResults();
+  }
+}
+
+function goBack() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    renderQuestion();
+  }
+}
+
+function showResults() {
+  document.getElementById("quiz-screen").classList.add("hidden");
+  document.getElementById("results-screen").classList.remove("hidden");
+
+  // aggregate
+  const psychCats = {};   // key "domain-style" -> array of values
+  const bodyCats = {};    // key "style" -> array of values
+  const domainAll = {};   // key domain -> array of values (all styles combined, for the diagram)
+
+  questions.forEach((q, i) => {
+    const val = scoreValue(answers[i], q.type);
+    if (q.domain === "body") {
+      bodyCats[q.style] = bodyCats[q.style] || [];
+      bodyCats[q.style].push(val);
+      domainAll.body = domainAll.body || [];
+      domainAll.body.push(val); // 0..4 frequency scale
+    } else {
+      const key = q.domain + "-" + q.style;
+      psychCats[key] = psychCats[key] || [];
+      psychCats[key].push(val);
+      domainAll[q.domain] = domainAll[q.domain] || [];
+      domainAll[q.domain].push(val); // -2..2 boundary scale
+    }
+  });
+
+  // domain-level scores for the diagram (all on a -2..2 boundary scale)
+  const domainScores = {};
+  domainOrder.forEach(domain => {
+    const vals = domainAll[domain] || [];
+    const avg = vals.reduce((a,b)=>a+b,0) / (vals.length || 1);
+    domainScores[domain] = domain === "body" ? (2 - avg) : avg; // invert body frequency so fewer symptoms = solid boundary
+  });
+
+  // overall score across every answered question, for the face's expression
+  const allBoundaryScores = questions.map((q, i) => boundaryScoreForAnswer(q.type, answers[i]));
+  const overallScore = allBoundaryScores.reduce((a,b)=>a+b,0) / (allBoundaryScores.length || 1);
+
+  const diagramContainer = document.getElementById("diagram-container");
+  diagramContainer.innerHTML = `
+    <div class="diagram-card">
+      <div class="diagram-stage">
+        <div id="result-avatar-abstract" class="diagram-avatar-abstract hidden"></div>
+        <canvas id="result-avatar-canvas" class="diagram-avatar-canvas hidden"></canvas>
+      </div>
+      <div class="diagram-legend">
+        <div class="diagram-legend-item"><span class="diagram-legend-swatch" style="background:#8a3a24;"></span>Wall &mdash; brick builds up, less transparent</div>
+        <div class="diagram-legend-item"><span class="diagram-legend-swatch" style="background:#0F6E56;"></span>Normalized &mdash; clear face, no wall or hole</div>
+        <div class="diagram-legend-item"><span class="diagram-legend-swatch" style="background:#ffffff; border:1px solid #c7c5bc;"></span>Hole &mdash; white gap through the face</div>
+      </div>
+    </div>
+  `;
+
+  if (hasPhotoPair()) {
+    const canvasEl = document.getElementById("result-avatar-canvas");
+    canvasEl.classList.remove("hidden");
+    drawMorphedFace(canvasEl, overallScore, 480);
+  } else {
+    const abstractEl = document.getElementById("result-avatar-abstract");
+    abstractEl.classList.remove("hidden");
+    abstractEl.innerHTML = `<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Face reflecting overall vulnerability or invulnerability">${faceInner(overallScore)}</svg>`;
+  }
+
+  const container = document.getElementById("results-container");
+  container.innerHTML = "";
+
+  const wallColor = "#993c1d", wallBg = "#faece7";
+  const holeColor = "#185fa5", holeBg = "#e6f1fb";
+  const normColor = "#3b6d11", normBg = "#eaf3de";
+
+  let leanCounts = { wall: 0, hole: 0, normalized: 0 };
+  let bodyFlags = [];
+
+  container.innerHTML += '<h2 class="section-heading">Mind, heart, social & spirit</h2>';
+
+  domainOrder.filter(d => d !== "body").forEach(domain => {
+    styleOrder.forEach(style => {
+      const key = domain + "-" + style;
+      const vals = psychCats[key] || [];
+      const avg = vals.reduce((a,b)=>a+b,0) / (vals.length || 1);
+      const lean = leanCategory(avg);
+      const strength = leanStrength(avg);
+      leanCounts[lean]++;
+
+      const label = domainNames[domain] + " (" + style + ")";
+      const desc = domainProfiles[domain][lean];
+      let color, bg, scoreLabel;
+      if (lean === "wall") { color = wallColor; bg = wallBg; scoreLabel = "Wall (" + strength + ")"; }
+      else if (lean === "hole") { color = holeColor; bg = holeBg; scoreLabel = "Hole (" + strength + ")"; }
+      else { color = normColor; bg = normBg; scoreLabel = "Normalized"; }
+
+      // position on -2..2 scale mapped to 0-100%
+      const pct = ((avg + 2) / 4) * 100;
+
+      const card = document.createElement("div");
+      card.className = "result-card";
+      card.innerHTML = `
+        <div class="result-header">
+          <span class="result-title">${label}</span>
+          <span class="result-score" style="background:${bg}; color:${color};">${scoreLabel}</span>
+        </div>
+        <div class="bar-track"><div class="bar-mid"></div><div class="bar-fill" style="width:${pct}%; background:${color};"></div></div>
+        <p class="result-desc">${desc}</p>
+      `;
+      container.appendChild(card);
+    });
+  });
+
+  container.innerHTML += '<h2 class="section-heading">Body</h2>';
+  styleOrder.forEach(style => {
+    const vals = bodyCats[style] || [];
+    const avg = vals.reduce((a,b)=>a+b,0) / (vals.length || 1);
+    const bucket = bodyBucket(avg);
+    if (bucket === "moderate" || bucket === "significant") bodyFlags.push(style);
+    const pct = (avg / 4) * 100;
+    const bucketColor = { minimal: normColor, mild: "#854f0b", moderate: wallColor, significant: "#791f1f" }[bucket];
+    const bucketBg = { minimal: normBg, mild: "#faeeda", moderate: wallBg, significant: "#fcebeb" }[bucket];
+
+    const card = document.createElement("div");
+    card.className = "result-card";
+    card.innerHTML = `
+      <div class="result-header">
+        <span class="result-title">Body (${style})</span>
+        <span class="result-score" style="background:${bucketBg}; color:${bucketColor};">${bucket}</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:${pct}%; background:${bucketColor};"></div></div>
+      <p class="result-desc">${bodyProfiles[style][bucket]}</p>
+    `;
+    container.appendChild(card);
+  });
+
+  // long profile summary
+  const dominant = Object.entries(leanCounts).sort((a,b) => b[1]-a[1])[0][0];
+  let dominantText;
+  if (dominant === "wall") {
+    dominantText = "Across your mind, heart, social and spiritual life, your boundaries lean toward walls more often than holes — rigid, protective, and sometimes isolating.";
+  } else if (dominant === "hole") {
+    dominantText = "Across your mind, heart, social and spiritual life, your boundaries lean toward holes more often than walls — permeable, giving, and sometimes unprotected.";
+  } else {
+    dominantText = "Across your mind, heart, social and spiritual life, your boundaries lean toward normalized more often than not — flexible and functional, holding steady without being rigid or absent.";
+  }
+
+  let bodyText = "";
+  if (bodyFlags.length > 0) {
+    const names = bodyFlags.map(s => "Body (" + s + ")").join(" and ");
+    bodyText = "Physically, " + names + (bodyFlags.length > 1 ? " show" : " shows") + " a moderate-to-significant symptom pattern, which can be a sign that boundary stress is showing up in the body, not just the mind.";
+  } else {
+    bodyText = "Physically, your symptom patterns are generally mild across the board.";
+  }
+
+  const summary = document.createElement("div");
+  summary.className = "summary-card";
+  summary.innerHTML = `
+    <p style="font-weight:600; font-size:16px;">Overall profile</p>
+    <p>Of your 12 mind/heart/social/spirit categories: ${leanCounts.wall} lean wall, ${leanCounts.hole} lean hole, and ${leanCounts.normalized} are normalized.</p>
+    <p>${dominantText}</p>
+    <p>${bodyText}</p>
+  `;
+  container.insertBefore(summary, container.firstChild);
+}
+
+function restart() {
+  document.getElementById("results-screen").classList.add("hidden");
+  document.getElementById("intro-screen").classList.remove("hidden");
+  document.getElementById("start-over-btn").classList.add("hidden");
+}
+
+function confirmStartOver() {
+  const ok = window.confirm("Start over? This clears your answers, photos, and results.");
+  if (ok) fullReset();
+}
+
+function fullReset() {
+  stopCamera();
+  questions = [];
+  answers = [];
+  currentIndex = 0;
+  resetPhotoFlow();
+  document.getElementById("quiz-screen").classList.add("hidden");
+  document.getElementById("results-screen").classList.add("hidden");
+  document.getElementById("intro-screen").classList.remove("hidden");
+  document.getElementById("start-over-btn").classList.add("hidden");
+}
+</script>
+</body>
+</html>
