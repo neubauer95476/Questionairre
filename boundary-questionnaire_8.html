@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Boundary Questionnaire</title>
+
+<!-- iOS "Add to Home Screen" support -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Boundary Q">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#534AB7">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAe1UlEQVR4nO2deZRkdZXn772/t8WWkUtl1l5ZRW1AWVDFUiCgCAiyKHAalRZPz4iKINM4o2LTnnaO9tA9rba2S0/b9uCcnra7HXvG9iiO2kexByxtEFlE9lpZiqLIysrKjIi3/36/O3+8zCQrI14RCVkvIov3oQ4nTmb88t148X33d3/3d+97eM3lP4acnFZQpw3I6V5yceSkkosjJ5VcHDmp5OLISSUXR04quThyUsnFkZNKLo6cVHJx5KSSiyMnlVwcOank4shJJRdHTiq5OHJSycWRk0oujpxUcnHkpJKLIyeVXBw5qeTiyEklF0dOKrk4clLJxZGTSi6OnFSMThvQYRCP9lvmrOzoSl5f4kBM1IAAzAzMoCQzgFKz3ykEIAASEs0e8vrh+BcHIiAiACsFccxSMmtABMNEy8JSRSBCb69BBMwAU45kYlwpxVHIYahlzDoZYqBhIBmAgACsdUc/2LHnuBUHEQCg1hyGLGNNBKUyDQ5ZS5eZy5Zbi4bMgUVGqSQqFQEApTLhkROM6yrW4LrKdfXhMXlwJD6wP9r/QnzoUNyoKynBMMCySAgAgONVJcebOBABCbViz9NaQ7FIa06w16x11m1wVq6y+/qMQpFIADNoBVqz0gAAWjHAERNGsUiA2FMVlMwsBKwhCPTEuHphX7R7Z7B7V7DvubBeU4DgOCQMZM3H2aRz/IiDCAAgijgMdbFImzYXT91aOvHkwuIlplMg1hDHrBR7ngaYnD+mnUVzWKoUALCCJNKAZAgR9A8YQ0vM07eV4ogPjsS7dgS/ech9+kl/YkKZJto2Ih4/jgSPg/tzJOFC4GtmWLbcOuOs8tYzSquGbcPAOOY4Zq0ZAKei0dfEVEzKiGiaaFrIGl7cHz3ysHv/fY1n94ZKcaFARKj1gncjC1scSAAMvq8F4fqNzpsvqJ56WqlSoSjmKGRmRsTXLog0phcvloWWjYHPTz3h3f2z2hOPeYGvC0UiWtheZKGKI1mDBL4GgE2nFC6+rG/TGwpCYBBoJRlnx5fHFmZgZiJ0HAKEPbuCn/7L+EO/bkQRF4u0cBfAC1IcRChjHYS8br1z1TX9m08tIqLva+bJyKNTJH7CcUgYsHtHcOd3xx75jSsEOg4ptfAEssDEkcQNbkP39Rtvv7rvzRdUTbMrZDGTxFU4DiLiA/c3vvedQ/uei4qlhTfLLKTVChFKqcOQz31zzzXXDiwaMjxXxzFPJTG7hUTBQcAAvO3s8qbNhR/eefgnPxpnhoXlQhaM5xACXFdXq8Z1/27RWedWopCjSAvRTaJohdYsBBaL9MRj/t//7cjzz0blHmK9MKKQBSCO5EKs19WmNxTfd8PQ0uVWo67nZV2aDcygNZdKotFQ//h3B//t5/ViiRAXgD66fVpBAlbgBfqKK/t/590DRFCvqe53GDNBBCHQ87Rl4Y2/v2TtOud/f2sUGEwLuzwE6WpxEEEUMSJcf8PQhZf0ug0Vx7CwlDENESgFnqsuvaJvyVLzjr8eqddUsYjNG8LdQ9eE+E0QYRhysShu+djSiy6p1iZkVy1JXgWIQIQTE/KUraVbP7ls2TLTc7s6bOrSk00EYajLZfGx25ZtOa00MaGEyDSvdewQAus1tWKl/Yk/Wr5y2HYb3TtLdqM4iCAMuVwWH71t2eoT7NpCCzJeESHQ81S5Ij5627JVqxN9dNqmVnSdOJI4I1HG8Bq70cUX1mtBCAxDrkzpw3M1dd/H7C5xIEIcs+3Qf/qDpavXdLXLfe0kDrLSIz5227Klyy3f00Td9WG7SBzJ0p8ZPnDj4hPWOserz5gJEQS+7qkaN92ypNJDUcTYRV9Il4nD9/W171105tnler2rw/h5JIk/hlfbH7xpMSBzN2U+ukUcQkC9ri+8uPq2K/omxrs0QDtGCIH1utp6Rvnd71nkurp7lutdYQgReJ5ev8G59r2LPFd1z9nJDCGwNiEvvqz3nDdVGl3jNTv/PSCClFAsius/NGSaqNSC2TSZXxAxCvm9/35wxSorCHQ3nISuEEfg63f+7sDwGtv3+XXoNhIQQUqu9Ijfu36o07ZM0uGvggg8V5++rXT+hdV6Tb+uQo1miMBtqE2bC5dc1us2Op/56LA4lIJiia65dpHW3A2OtOMk+7dXXNW3fIUVdXpy6aQ4iND39CWX9a5a3S2zbDegFJcr4qp39kvJnd1P6pg4ECGK9PIV1lsv7e3yzcmMIUKvobedXdm8peR7nVy7dVIcccRXXN1XqYhurmnoFAx85e/0GyZ2sGCsM+JI6m/XrLXP2FbxvC5K+3QJSBD4vH6Ds/WMste5tFjHxKEUv/XSvkKh20vlOgUCKMUXX9prO9Qp59EBcSBCFPHyFdbW00u+n7uN1iBBEOh1652TNhU6dZY6Ig6MQn7T+T3l8kJq4ugECABvuaiKiMwdCNg7IA4pubdPnH5WOQw7vFTrcoggCPRJmwqrhq0o7MBSP2txEEEY6M1bSkOLzTjOcxuvgNZcKNK2sytR3IEkYdbiYAYSeMa2clcVLnQtiBhHfOpppZ6eDiz4MxXHZCi63Np4khOGXVcV14UgQhjy8hXm+o2FMMg6LM1WHARxxCefUiyVhJJ5KNouRLjltGL2C9pspcggDDx5U0HrV7o9bM4UiBDFvH6jUypnPbNkJ46ksrx/wBheY0dRHoq2S7LPMLjYWr7SiqJMZ5asxbFipVWtinkv99JaK611p7Otx8gMZrZtXLvWURJevo/usSfLRmrUCtatd4SBzHq+Mhxaa0QsFAqGYWil/CDQWlPmCcVjbAZqDWs3OCSAIbvQIztxMLBhwvAaWyuYL/lrrQuOwwBPPvX0yMhIb7V60kknlkol13Wz1MexNiOpIFy+wiqVhcww4ZGdOLSCUlkMLbZiOT8fT2tdKpV27Nj5pa/8t8cffyoMA9M0Vw8P33zzDeed88Z6o5GNPjIwAxGU5N4+o3/A2L8vsqyM9vEzurwS7Q8sMnv7hJoPcWitHcfZsXPXLf/x1gcffNgwRLlctm179569H7/1k3ffs71UKmUQgmRmhtZQKNLSpZacp0urHTIVx9CQOV8b0IiIiF/96tfGxsZ6e3uZWWuttS6Xi0T05a/81cTEhGEcc7+YmRnMTARLl5usIbOYNLOJGVnD4FDy5IrXqg5mdhx7585djz3+ZKVSieN4+ldSqkKh8ML+Fx948OFCwTmmziNrMzQMDppZNtNmeCiE/gFjXmJtZjYMY3T0UBAELVc9SqkDB0aI6Jg+xyBbM1Bp6Os3hMDMHs6QkTiYQQjsqRrzNacopXr7ei3banmmiGjRQP+xPokZm6E1lCrCtrOrKs3MczARVHqEno8pExF9P9ywft2GdWtdz5s5qQshoigaHFx0+ulbfD84pguWLM1ATO5XSZZFyWOjMiA7z0GEQsyb6pm1YRj/4eYbbctqNFwxRRiGrud9+KYPDg4OxnF8rIuJsjRj8hwax5fnSJ5PUyxSb59Qan5WYkTked5pp2354hf+bPXqVQ3XHZ+YqNcbfb29/+Uzn3rH2y9vZJLnyMyMac/R00M6q9rKTO9DOr+SJ6JGo3Hm6ad9446v/ebhR1488FJfX+/WLacODPRno4yuMuNY0NU3qX1FiMj1PCHEeeedI4TQWvu+n/1X0iVmzDsLWxwAkCwUG43G1HOZsCNfSZeYMb8seHEkdMk30SVmzBfZfRjmBfYomi4k43OYhTiYk6elqPHD0shwJXY8kWQR63VVm1DCON72VgAgwzKV45csL62MYg5ElFKPH4oRbQCe/G/uqVLEV7ezwAgImNzm89UcFJg7ZPDkWNZACLUJmfTNZiORDCvBNDRcsAoFz/fIMFGIOboSZNY6jg3LfhXfkVYStBZWYe7+C1UckRAojDmPZVZxbFjW5ANw53JQVlJrbVh2MlBrsIoiCOM41k5WfffZiQOJ9u8dG9s7geUlXm00atRRUPtnjJmFZZUWDU288JyWcg4JaQRW2qn2GrYz8cJzOMc9b2YuDy0JfS+sTczZYNMsDS6u7d+n5pRBR2Cl7Z4es1iqvfB8MlBrjov4/A6tmV6tN5ozGYmDtbKKxSd/+fA///DPr/yb7z7+vW8//t1vO7293F4nBhLFvjd44qZLbv+Ln/3xbe7IAWG13ghtMVYI//Dhs278yNJTT//BR95vlSrt30MaEWPfv+pr33zm5z976Jt3OH197RqMKMOwunL4ii/+zT2f+/ThZ3YbttO+wcH44S3XXb/2osvuvOV6w3GAmYFMbuwpvtcsvIN1PZtgMauNN0ACFdCghAKAnvxZdszLsTprMDOQL5YiZNfYlF0lGLIMqT8UAwQyq4MeNyCCllTxaSmy5OOuTBAQtMSiT0uQZZadOccHBDLA/pCqBCqzs5dl+pwZRN1Yi6ABCYmw7TVZ8mYkOuL1nMYiTr9uf35I9kimX8zhoNPvnw+DmUmw7xrDEksmNzirSzrTjjcEWTfWarRU4IX1GhlGi/iu1eN4kSjyvNhzmTlyG1Gj3jogbTlWiLBek1HISoX1GjC0CkiTa7FpLGLk+ay1DMOwXiPTbNdgxDgMI7fBzJHrho26juO5GRyGrHVYr2sZMyODWxtY12T2sSXLjjcUHPtiWUADQxs2rDn/Yrtc5qatAi0lNj0JEhFlFFZXDgvTWnHmOcH4mDDMWY2BrDVrTU19AEgUNuq9q9bY1d41b36r6RSaOwq1UgiATbdeR0AZhVa50rdm7QlvudgqV9o1GFDFcWloSJjW8tO3VZevFKY122BmVqqlwVGj3n/COqtcWfPmC4VpIbDS+rHnNiBHWc7ImT6unAh8H69/f+nsN5aCSCDOyjkyItk9PZHb0LE8sk6SEZBZyzA0bAcQYVa+krWwbLNQCGq12b8CRkQVx6y1YdvMTYlO1la5AsyR24DZWRBGQBkGKIQwzaaxjIB2TzX2PRVFswwGQJg02J5Kgs00mIVpmsVSWJ9o8WcRVSxZScN2NINlw/PPyS98/lDG4Vq2lWBaC7v002/+fN8d/yOGIsKMqxBRS+lUqm//yh3bv3D7/t88aJVKTZcpIiFrnuX/kURYn1h30eVb3vv+O295HzA3F+AiIrR6ShaSCCYOX/ifPyvD4Oef/4zT2yKTgUjJdT7rp6y0sKwr//Jv77/jq89sv9uuNDvCNIMpajRWnn3e2Tff+oOPXC+DAMXsiGTaYAZhQuNZ43JlvcuEOLOlCmQtDkCB0WFc7wa2AUcGVohaxtKyEUlFkQx8EqLZh7cESUjfUzJCRBkELcVx9LGgNWgd+57hFNpMcwEiK8VaI2JisDCNtg0mGfgqmjRYBj4KkRauMoBmOdrzBkKd8Q0nMy72QeI4EIvHna1LontiLL/sPBCRdTLrY1KoLkSb3zGSQGEkefHJszwXcaAwABEQURjNYUf6SISpMGXuBhMKMbmWEWJybGtxoMFBzVjfMNcRBxmnADpQCYagR60zh8LtAPoIf5s8OHTm6zZ3EJoHts+rPujU+3Xy/tdocMpYBkSWo+YZCm2ToyznFMheHAwkOJgwTnLFyjLvV2hjoo+ZiYEZr9thVmJg2nNMd6gSUtpZnToQwpwyGQw6eR9isVCA12bwUY6LrCOsHrLOEBBkrAzolOeIsTxiv6lw+BsxqGlxaBkJ0wJmGQax5yJSiykcW2w7IInYc2UUMnPsecAMCIBYcBwAYGbfdxGSpELrsaykljL2XMN2WmUyjnRwwABQcArCELV67c4f/LCqVeQ2WgdJrQ2m2HNlGAJz7Hky8FAYzeJgJFM3RquXB7TYyDD3NU0HxMGAgoOD5lmbNj7pmJHWNOk+lbRKFTSMvtXr4iAwC8Xmc82sm/fckUTk1qsrhoVpDp28GZiRSEq1a9duQDAMY+Mpp0kptVLCMGYtOpBEVJ+we6pGXFiyeavdU20WBzMjvqwtIiKip3fsZKnHQ72+r79v+IQlm7dYpRZpmxSDKfbc3uE1ZBhDJ71BRuFsz4GTu5OE6vFDFwHHHdlwyDTPMQ0RuC6867qBK64ouS5M+2MGYCWRZueUkl8hoTAsFUfcHLUjsGbWmoTgyTus2Z/7/Bd/9OOfWKZ53XvefdOHb4il8l2XmmNGBK0UAFKrcg0GEJbFSulJ0bBhmN/8+2/9wz9+O47jyy9726c+eWvddQXNjmQZABGFeXSDFYkW1ycDAxqlEj3wq/rX/nLUtlRHbozfGXEgsGJhY/2N9BVSHuPLVWEI2Fwomaz9BtZtPP8PPvOTP/qoN3qQLHO2DwAAwMksJIMQpDUfOnQIhfDHDw9dcPmm8y/YcceXoSlTOXXQFvdiS5aal/zpV57/1fbHvvMtu9oLrGUsR0YOOo7NzAMDA0jYfPsNRFRhVFm+4q2f/vy/3v6HE88/KybzbykGz/y5EOHE+MlX/+6GCy+8/ROPjRsbTIo6Io7O9K0woEDpw+CuiZOGg+/G2DOjTKHFLJ0U+xQXDQKAN3bIHX0ppdhneiwmzUUV01CshwZ6f3rPPT+498ErrUagW57mtL0VijzPMg2UsvHSi0rGrCQiDpYdrRkR3dGR5ECz01yIMgyNQgEA/MNj7uhLKcU+rT6sEN7YOIbje0YGR8LlZTvWujOb2B1ramIgA4MDPVcugYdsfUiDDZB6dSCRlpIMEwDINIVpCfNolWA8ddYlswaImUmIesOlxRZpnlNcZxcLe/Y+s2vPXqdcJsMAIgaQyfqVgUyzKZMPMJm1YTLbNfgISFgF2/PUPXfWhNGxxzRBZzvekGWE5efsKze6X1dottignIaZpzMB/DJH+eOTDgRAEPmee8Fb3razFgSPbse2y/WSP2KZ5u1/8tnl2j+vp+gqNS0snDZsxuFmmTwng18eqLjgwL2/pmdFkFktcUs62b7HQCZ7I/a5Y+YpBnuAAl8JAHjF98yCiMIo2rTppJtu/ICUkpDmNBwAXNc1THPOB54aPrf3IwkIPWP5M3ChwR3IbcykK3pl9xbfU5m4XYcuYOt+BSSSYajiCABkFMkw5OadsBRQCBVFnusGga/iSEbhnAqMXT/48E0fsV589vkffcesVKWeQ4GxiiIAUFEkwxDaKxlnRsuInylfK0XVYDf73MZMOiyOJOdRp9UvVN51SuWuQBWQVfPVgkgy9EuDSwCwsmSZYZpkzq7nSANJWKWK01M1LLu6YtgslBjmIA7pB2+79JI9v7j78NIVdrWX2xQHoIqi8pKlAFBevFTFkbDsoxuMAJrJMcPdjVNG8Ayr08qATi1lZxsBECtx4009p22r+H56GhoRiY66a5ralIaEAJi+a3q0brZX6nRL/z0CkmCtUlUxY4+QGS2Ln3/G/dJfTER+nOUtJdPoimkFEAj1333jwL7/+1eXfvLj9/33rx984rdmodjs/6fWjUeORhG5teFzLzj56nff9elbW+7KJquLlmPD+sQ5H7lNRuGvvv5lp6fa7BuYk+bE2SNZKTKti//4z3/zv/7nCw/cZxVLbRtMsecu3Xrm1t+74a7PfEKFAQoDtERh3hd+wHP7LLNF2ix7ukIczGAI7cvSvS+88VKAxoEXRnc9bZfLrI48162TEYAkgtrhgfUnspRju3c2i4MnN9gnd11mjfXHD0VuQ4b+6M4ni/0DLFvtrTSPRdRKGbbNSjUO7B/d+ZRT6Wl/byVs1EpLlrFSh/fuin0fhWnq2o7iBw5WFjumN8fl9rGiK8QBAJrRNuMRf+0/fy9ebCnDKRl2gXVbZfhIZEZFMi1ANJzCHOs5yCwUkQjJMAtFw3bYaC8iQUgqwQBRWJbpFA3HYd1mGIRaSsOyANGwHQ1kY2Of/c6DpSttXe8SZUD3iAMAtEbHiv/fXfV1at0K64FYFRBmF9i1hpF5cgt96kXbPpmnAxFmrZm57bUMMmuePCgnr9sdyzQ9VgOZanykcN6ewrVCNTqX1GhBF4kDAACFReEeutJ0RhaHd8dYRWzjdCMC4tRmxYz/t3VEfPnNyes2x8588/TruY0FZjJ1fdQ4eWfxA8jylWPfbOkycSTN6SB3lG4AgMXB3aEuIr7C5YTEWsZJIKmlnOO0wlrGSfpSy1hLOacaUiQBAKzU5Ni2a0i1jFXMjhnVrJOfcD7EaBFHHV+7zqLrxJEs+Injp4s3INHqwm+9yKLJgkJMa3lCBMMpAIDTU20ljumxs2/egkTAmoQhDMOp9qUElclBj7ysEVmppDrJLBSdnl67Um4Rc7Q2GAGNvsHSM/vMh/FDIIpdqAzokjxHMwjMQFLTddda519Q8WKbEFhrLWMyrWa/wMzCMIVlx77b8u9pKZm1MK3mIIaZTafADDL0m5edAKjiCImo+eYtDIBoFooyCrWULa3ScUymOevPaqaCET71dPT1v66FgTKMrli4NtOFngMgqQxDJoj/6bvW7gfuXxV+P4xEdXjtWR+8+Rdf+qw/fkgYR9ZzILBmYI1NRTcoKKzXTr7q3QPrNv7yy//VdIpNHSiQeIvmNtokC37exz914JEHd/zL961Kz+zVNQBrhUSzahARUcVRaWjJOb//ifu+9sX6gf1Tu7LIiKaaOFi64L795wZeZFmidRFBF9Cl4oCk7ZqIpffLJ1fviU4ZPvR12TgsY3Xg0YcaL73Yqp4DJ+/dNeunQvhjYyvPPKeyZNm+X9/b8uYtiDi5B9/089j3Y8+d2Pfc87/6N6e/v1XLU4uxiap6V63RUr70+G/H9u40bEczEijB/nOFq59xTrFs37REe4vfztC94oDkfCMWi3CofFVgLB2s3F8osFGsWKWGaKoESyPZeCPLQiKrVLZK5TltvCEJJBKWZZXLVqnc/p19yDDNYhEQzWLRKpWFXRLalVjZXbzlJftNBfZgqquha+lqcSRoDUKP1wun3jO+cfm9NZs8V8Vam9Dmd4zIeioLojVr3b44JsdCEj7o5F/7A5M3aw1as63GJ8T6HaUPumKVqWpdGH42swBMhKTyA30/wG/cUX/UvwwtR+ikVD+ZrV9xzsamF+3zasciAIDWKDgQHD3vvOPRyh/6YpnJ9QWhDFgQniOBIblZgX6WLx3rOXGN9+3++BEFhtQG4VEfXZQkLqfyp+1XZE2NnvIccxrLoGKNyKUiu8bqxyrX1ErbDOUKDhja7rjsNAtGHDBVk25B3RPLHqvcOhT+clV4Z3+xHkYYR4zEiC025VEIEiKptSEhSIgWfQKIAK2CWcTJViXEybFNViHRrD56BjIMKhRAYeGfvjX2C/d9qmiYqsaAC8VnJHRpnuPoJKvGGEummjj3bH3BW/v6+0UkKYq0VSw297Wx1la5IizLPzzWIpOR9OYjGLbTou2MudA/oIIgchvNlSYMIH1PWDYJY7Jxj6WBoevqe39Ru+uucMIrFBxA5IUli4SF5DmmSTbPTW4wWXdtx0f3ihMHd5+60Tv1svO2f+lzkq2p9eXUN43ISjIzGbOfXYpEkdvYct37VRz99v/8g93ctYagY5n0xR/ZlIasNRnm2Td/7Kkf3zny+KO2Q6TDiHrGnDc+MbL+2b2mZZnJA6k7Wwr6qlmQ4khgIAAuOnrsxdq/7un79ePV0/Y+523fUfB3EGoFtkYTJt1MsihuUcWJJILDh9ZeeKkM/B0//n6hfyAlk9GiKEMrLSx72wdvHn1k+56f/lj3nTRinPmSdbZPQ6ZZK9qoGTrVcjIvLGBxJGhGw4SKbSkF2+/jwtCf9sqnB6L7++LfFvQYAms0NZiMBAwzagCmGuxIsFJkmqSV3dNrV3pSMhlTxXxJPz4zoiTpG44RePFBY9szK890q2dFUBYcljlihm7ObrXJghcHJHe4UIwApSJoLQ+JTaOFzbY92iuf6o0f65G7bD1qcAiAGgyNxow1MCCA1syT/3TyAqB5ImAERSwJJILWYEXUVzc3T5inPPRnh8Yb50GZhAwMmGBAvTAnkWaOB3FMk0QLBnsAILEyYp37knWexbWCerEid1fk7oJ60daHDPYIpoon2DTYMwwGxcgxQgygAECwSvq6ETQAMgiJBV8s8sWShlhTM9Z5YnlEfQyIE54hfGBgoIUYdR6F40ocCck3hCANjgFAg1k31k0YGxFYsG/pw44ecfSoow6aXLOhFtrj4zVTRTIyhgh7mRQAhNQHIGLqibAa0kBAg4EYDGlAYpFBIEji2GAXAMAg7prCvvllQS5l58p0qMFAGgyemlkQNIICZlPEADzzSR0SHEBiIAaR+I9kWplu+E5uENOxj5QJx6HnaGbmF0kQI0dH/gqkRABEtKaDSIJ4KoA94o8cZxPH0XldiONIsDnrMN1YNPNn0CIsfX3xOroOcuZKLo6cVHJx5KSSiyMnlVwcOank4shJJRdHTiq5OHJSycWRk0oujpxUcnHkpJKLIyeVXBw5qeTiyEklF0dOKrk4clLJxZGTSi6OnFRyceSkkosjJ5VcHDmp5OLISSUXR04quThyUsnFkZNKLo6cVHJx5KSSiyMnlVwcOank4shJJRdHTiq5OHJSycWRk0oujpxUcnHkpJKLIyeVXBw5qeTiyEklF0dOKrk4clL5/zgCrf0M59+2AAAAAElFTkSuQmCC">
+<link rel="manifest" href="manifest.json">
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --card: #ffffff;
+    --ink: #2c2c2a;
+    --muted: #6b6a63;
+    --border: #e2e0d8;
+    --accent: #534ab7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 660px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+  header { text-align: center; margin-bottom: 2rem; position: relative; }
+  .start-over-btn {
+    position: absolute; top: 0; right: 0;
+    padding: 6px 14px; font-size: 12px; font-weight: 500;
+    border-radius: 8px; border: 1px solid var(--border); background: #fff; color: var(--muted);
+    cursor: pointer;
+  }
+  .start-over-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .start-over-btn.hidden { display: none !important; }
+  h1 { font-size: 26px; font-weight: 600; margin: 0 0 0.5rem; }
+  .subtitle { color: var(--muted); font-size: 15px; margin: 0; }
+  .progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin-bottom: 2rem; }
+  .progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.2s ease; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem 1.5rem; margin-bottom: 1.25rem; }
+  .cat-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); margin: 0 0 0.6rem; }
+  .question-text { font-size: 17px; font-weight: 500; margin: 0 0 1.25rem; }
+  .scale { display: flex; flex-direction: column; gap: 8px; }
+  .scale button {
+    padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border);
+    background: #fff; color: var(--ink); font-size: 15px; text-align: left; cursor: pointer; transition: all 0.15s ease;
+  }
+  .scale button:hover { border-color: var(--accent); }
+  .scale button.selected { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+  .section-progress { text-align: center; font-size: 12px; color: var(--muted); margin-top: 0.6rem; }
+  .order-choice { margin: 1.25rem 0; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+  .order-choice-label { font-size: 14px; color: var(--muted); margin: 0 0 0.6rem; }
+  .order-choice-buttons { display: flex; gap: 10px; }
+  .order-btn {
+    flex: 1; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border);
+    background: #fff; color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;
+  }
+  .order-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .save-compare-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 1rem; }
+  .save-compare-row label.nav-btn { display: inline-block; }
+  .compare-card { background: #eeedfe; border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
+  .compare-title { font-weight: 600; font-size: 15px; margin: 0 0 0.5rem; }
+  .compare-card p { margin: 0 0 0.5rem; font-size: 14.5px; }
+  .compare-list { margin: 0.5rem 0 0; padding-left: 1.2rem; font-size: 14px; }
+  .compare-list li { margin-bottom: 0.25rem; }
+  .nav-btn { padding: 10px 20px; border-radius: 8px; border: 1px solid var(--border); background: #fff; font-size: 14px; font-weight: 500; cursor: pointer; }
+  .nav-btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .q-count { font-size: 13px; color: var(--muted); }
+  .result-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; margin-bottom: 1rem; }
+  .result-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; gap: 12px; }
+  .result-title { font-size: 16px; font-weight: 600; }
+  .result-score { font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+  .bar-track { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin: 10px 0 12px; position: relative; }
+  .bar-fill { height: 100%; border-radius: 4px; position: absolute; }
+  .bar-mid { position: absolute; left: 50%; top: -3px; bottom: -3px; width: 1px; background: var(--muted); opacity: 0.4; }
+  .result-desc { font-size: 14px; color: var(--muted); margin: 0; }
+  .section-heading { font-size: 20px; font-weight: 600; margin: 2rem 0 1rem; }
+  .section-heading:first-child { margin-top: 0; }
+  .summary-card { background: #eeedfe; border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .summary-card p { margin: 0 0 0.75rem; font-size: 14.5px; }
+  .summary-card p:last-child { margin-bottom: 0; }
+  .intro-btn { display: block; width: 100%; padding: 14px; border-radius: 10px; border: none; background: var(--accent); color: #fff; font-size: 16px; font-weight: 600; cursor: pointer; }
+  .start-bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+    background: var(--bg); border-top: 1px solid var(--border);
+    padding: 0.85rem 1.5rem calc(0.85rem + env(safe-area-inset-bottom, 0px));
+  }
+  .start-bar .intro-btn { max-width: 660px; margin: 0 auto; }
+  .start-bar.hidden { display: none !important; }
+  body.has-start-bar .wrap { padding-bottom: 5.5rem; }
+  .restart-btn { display: block; margin: 2rem auto 0; padding: 10px 22px; border-radius: 8px; border: 1px solid var(--border); background: #fff; font-size: 14px; cursor: pointer; }
+  .hidden { display: none !important; }
+  .disclaimer { font-size: 12px; color: var(--muted); text-align: center; margin-top: 2rem; }
+  .legend { font-size: 12px; color: var(--muted); text-align: center; margin-bottom: 1.5rem; }
+  .diagram-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 1rem 1.25rem; margin-bottom: 1.5rem; text-align: center; }
+  .diagram-stage { position: relative; width: 100%; max-width: 420px; aspect-ratio: 1 / 1; margin: 0 auto; touch-action: none; }
+  .diagram-stage canvas { display: block; border-radius: 12px; }
+  .diagram-legend { display: flex; justify-content: center; gap: 18px; margin-top: 0.75rem; flex-wrap: wrap; }
+  .diagram-legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+  .diagram-legend-swatch { width: 22px; height: 6px; border-radius: 3px; flex-shrink: 0; }
+  .scene-hint { font-size: 12px; color: var(--muted); margin: 0.75rem 0 0; }
+  .domain-legend { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin: 0.75rem 0 0.5rem; }
+  .section-select-heading { text-align: center; font-size: 17px; font-weight: 600; margin: 0 0 0.5rem; }
+  .section-select-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 1.25rem; }
+  .section-select-btn {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px; border-radius: 10px; border: 1px solid var(--border);
+    background: #fff; color: var(--ink); font-size: 16px; font-weight: 600; cursor: pointer;
+  }
+  .section-select-btn:hover:not(:disabled) { border-color: var(--accent); }
+  .section-select-btn:disabled { background: #f0efe9; color: var(--muted); cursor: default; }
+  .section-select-btn .checkmark { color: #0F6E56; font-size: 18px; }
+  .section-select-swatch { width: 12px; height: 12px; border-radius: 3px; margin-right: 10px; display: inline-block; }
+  .section-select-label { display: flex; align-items: center; }
+  .domain-legend-item { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+  .domain-legend-swatch { width: 14px; height: 14px; border-radius: 4px; flex-shrink: 0; display: inline-block; border: 1px solid rgba(0,0,0,0.15); }
+  .avatar-note { font-size: 13px; color: var(--muted); margin: 1.25rem 0 0; }
+  .live-face-wrap { display: flex; justify-content: center; margin-bottom: 1.25rem; }
+  .live-face-stage { position: relative; width: 270px; height: 270px; touch-action: none; }
+  .live-face-stage canvas { display: block; border-radius: 12px; }
+  .jump-menu { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
+  .jump-menu select {
+    font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border);
+    background: #fff; color: var(--muted); max-width: 180px;
+  }
+</style>
+</head>
+<body class="has-start-bar">
+<div class="wrap">
+  <header>
+    <button type="button" class="start-over-btn hidden" id="start-over-btn" onclick="confirmStartOver()">Start over</button>
+    <h1>The Boundary Questionnaire</h1>
+    <p class="subtitle">A self-reflection on where your boundaries hold, where they thin out, and where they may be missing.</p>
+  </header>
+
+  <div id="intro-screen" class="card">
+    <div class="jump-menu">
+      <select onchange="jumpToAnchor(this.value); this.value='';">
+        <option value="">Jump to&hellip;</option>
+        <option value="order-choice">Question order</option>
+        <option value="start-bar">Start button</option>
+      </select>
+    </div>
+    <p style="margin: 0 0 1rem;">This questionnaire has 135 statements about your mind, heart, social life, sense of meaning, and body. Answer honestly with how often each one is true for you.</p>
+    <p style="margin: 0; color: var(--muted); font-size: 14px;">There's no right answer. Extreme answers (Always / Never) and moderate ones (Often / Seldom) reveal different things than a balanced Sometimes &mdash; that's the point.</p>
+
+    <div class="order-choice" id="order-choice">
+      <p class="order-choice-label">Question order</p>
+      <div class="order-choice-buttons">
+        <button type="button" class="order-btn active" id="order-btn-ordered" onclick="setQuestionOrder('ordered')">Ordered</button>
+        <button type="button" class="order-btn" id="order-btn-shuffled" onclick="setQuestionOrder('shuffled')">Shuffled</button>
+      </div>
+    </div>
+
+    <p class="avatar-note">Your avatar and boundary wall build up live as you answer &mdash; scroll down during the quiz to watch it.</p>
+  </div>
+
+  <div id="start-bar" class="start-bar">
+    <button class="intro-btn" onclick="startQuiz()">Start</button>
+  </div>
+
+  <div id="section-select-screen" class="hidden card">
+    <p class="section-select-heading" id="section-select-heading">Choose a section to begin</p>
+    <div class="live-face-wrap">
+      <div class="live-face-stage" id="section-scene-mount"></div>
+    </div>
+    <div class="domain-legend" id="section-domain-legend"></div>
+    <div class="section-select-buttons" id="section-select-buttons"></div>
+  </div>
+
+  <div id="quiz-screen" class="hidden">
+    <div class="live-face-wrap">
+      <div class="live-face-stage" id="quiz-scene-mount"></div>
+    </div>
+    <div class="domain-legend" id="quiz-domain-legend"></div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="card">
+      <p class="question-text" id="q-text"></p>
+      <div class="scale" id="q-scale"></div>
+    </div>
+    <div class="nav-row">
+      <button class="nav-btn" id="back-btn" onclick="goBack()">Back</button>
+      <button class="nav-btn primary" id="next-btn" onclick="goNext()" disabled>Next</button>
+    </div>
+    <p class="section-progress" id="section-progress"></p>
+  </div>
+
+  <div id="results-screen" class="hidden">
+    <div class="jump-menu">
+      <select onchange="jumpToAnchor(this.value); this.value='';">
+        <option value="">Jump to&hellip;</option>
+        <option value="diagram-container">Your face</option>
+        <option value="section-summary">Overall profile</option>
+        <option value="section-mind">Mind</option>
+        <option value="section-heart">Heart</option>
+        <option value="section-social">Social</option>
+        <option value="section-spirit">Spirit</option>
+        <option value="section-body">Body</option>
+      </select>
+    </div>
+    <div class="save-compare-row">
+      <button type="button" class="nav-btn primary" onclick="saveResultsToFile()">Save results to file</button>
+      <label class="nav-btn" for="compare-file-input">Compare with a previous save</label>
+      <input type="file" id="compare-file-input" accept="application/json" style="display:none;" onchange="handleCompareFile(event)">
+    </div>
+    <div id="compare-container"></div>
+    <div id="diagram-container">
+      <div class="diagram-card">
+        <div class="diagram-stage" id="results-scene-mount"></div>
+        <div class="diagram-legend" id="results-domain-legend"></div>
+        <div class="diagram-legend">
+          <div class="diagram-legend-item"><span class="diagram-legend-swatch" style="background:#8a3a24;"></span>Wall &mdash; brick opacity rises</div>
+          <div class="diagram-legend-item"><span class="diagram-legend-swatch" style="background:#0F6E56;"></span>Normalized &mdash; 50% transparent</div>
+          <div class="diagram-legend-item"><span class="diagram-legend-swatch" style="background:#ffffff; border:1px solid #c7c5bc;"></span>Hole &mdash; brick opacity falls</div>
+        </div>
+        <p class="scene-hint">Drag to rotate the wall around your avatar.</p>
+      </div>
+    </div>
+    <div id="results-container"></div>
+    <button class="restart-btn" onclick="restart()">Retake questionnaire</button>
+    <p class="disclaimer">This is a self-reflection tool, not a clinical assessment. If what surfaces here feels heavy or overwhelming, consider talking with a therapist or counselor.</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ---------- DATA ----------
+// domain: mind | heart | social | spirit | body
+// style: I | C | O
+// type: 'w' (wall-making) | 'h' (hole-making) | 'f' (body frequency item, no wall/hole polarity)
+
+const psychQuestions = [
+// MIND (I)
+["believe others deserve more out of life than I do","mind","I","w"],
+["think I am different from other people","mind","I","w"],
+["believe no one will ever be there for me","mind","I","w"],
+["tell myself no one can be trusted","mind","I","w"],
+["daydream, get distracted or withdraw when in company","mind","I","w"],
+["interpret the behavior of others to pertain to me","mind","I","h"],
+["think accomplishments or achievements are what matters","mind","I","h"],
+["think helping others is what really matters in life","mind","I","h"],
+["think I am invisible on one hand and judged on the other","mind","I","h"],
+["think it is useless to stand up for myself","mind","I","h"],
+// HEART (I)
+["feel cut off, isolated or unrecognized","heart","I","w"],
+["feel unimportant, without substance compared to others","heart","I","w"],
+["feel uncomfortable being fussed over or acknowledged","heart","I","w"],
+["feel what matters to me does not matter to others","heart","I","w"],
+["feel I need no one","heart","I","w"],
+["feel my concerns or problems are not all that important","heart","I","w"],
+["wish I was like everyone else","heart","I","h"],
+["trust 'just anyone'","heart","I","h"],
+["give as much as I can for the sake of giving","heart","I","h"],
+["find myself needing to be wanted in my relationships","heart","I","h"],
+// SOCIAL (I)
+["find myself, socially, 'on the outside looking in'","social","I","w"],
+["withdraw from difficult people and situations","social","I","w"],
+["seem to fail in my attempts to connect with others","social","I","w"],
+["feel overwhelmed by the status or strengths of others","social","I","w"],
+["want to belong with other people","social","I","h"],
+["find myself where I don't belong","social","I","h"],
+["find myself apologizing or explaining what I mean","social","I","h"],
+["anticipate and fulfill the desires of others before being asked","social","I","h"],
+["find myself with no space of my own","social","I","h"],
+["find myself pleasing others at my expense","social","I","h"],
+// SPIRIT (I)
+["feel no matter what I do, I am doomed","spirit","I","w"],
+["feel I am unlike other people","spirit","I","w"],
+["feel alienated and apart from the world","spirit","I","w"],
+["find myself regretting missed opportunities","spirit","I","w"],
+["resist others' explanations of religion or spirituality","spirit","I","w"],
+["question the meaning of it all","spirit","I","h"],
+["believe good things do not last","spirit","I","h"],
+["feel I am on this earth for a reason","spirit","I","h"],
+["am preoccupied by illness or death","spirit","I","h"],
+["experience the world as a hostile place","spirit","I","h"],
+// MIND (C)
+["believe that what I don't know won't hurt me","mind","C","w"],
+["believe I can only trust myself","mind","C","w"],
+["think 'I can't do this' even before I try","mind","C","w"],
+["find myself thinking I should be in control of all aspects of my life","mind","C","w"],
+["find myself unable to let go of an issue or a grudge","mind","C","h"],
+["live in judgment of myself and others","mind","C","h"],
+["behave 'as if' I have no control over my life","mind","C","h"],
+["behave 'as if' I were responsible for other people's happiness","mind","C","h"],
+["let others define or describe my reality","mind","C","h"],
+["find myself having to assert myself","mind","C","h"],
+// HEART (C)
+["feel depending on others is to invite disappointment","heart","C","w"],
+["dread change in my routine and cling to the familiar","heart","C","w"],
+["prefer to lie rather than face a potentially upsetting situation","heart","C","w"],
+["view or present my accomplishments as 'no big deal'","heart","C","w"],
+["find myself 'shutting people out of my heart'","heart","C","w"],
+["get very upset if others break the rules","heart","C","h"],
+["feel hurt when favors or debts are not repaid","heart","C","h"],
+["prefer 'getting even' to being angry","heart","C","h"],
+["feel plagued by indecision or self-doubt","heart","C","h"],
+["get very upset when scolded, frustrated or thwarted","heart","C","h"],
+// SOCIAL (C)
+["find myself testing and failing others, without their knowledge","social","C","w"],
+["believe people should stick to 'their own kind'","social","C","w"],
+["follow the 'path of least resistance' in a conflict","social","C","w"],
+["find myself surrounded by disagreement or crisis","social","C","w"],
+["act in passive ways with my superiors","social","C","h"],
+["find myself acting in seductive ways to get my needs met","social","C","h"],
+["let others direct and influence my life","social","C","h"],
+["find myself cleaning up other people's messes","social","C","h"],
+["feel obligated to others","social","C","h"],
+["find myself managing other people's thoughts and feelings","social","C","h"],
+// SPIRIT (C)
+["think that planning ahead averts disaster","spirit","C","w"],
+["believe that life is 'short, nasty and brutish'","spirit","C","w"],
+["believe when I stand up someone knocks me down","spirit","C","w"],
+["worry about making the wrong decision","spirit","C","w"],
+["welcome change and conflict in my life","spirit","C","h"],
+["believe I am responsible for my lot in life","spirit","C","h"],
+["find myself worrying about my direction or goal in life","spirit","C","h"],
+["feel controlled by accidental happenings or events","spirit","C","h"],
+["find myself 'going with the flow'","spirit","C","h"],
+["believe what goes around, comes around","spirit","C","h"],
+// MIND (O)
+["avoid closeness fearing it will lead to pain or disappointment","mind","O","w"],
+["hide my true feelings lest I upset others","mind","O","w"],
+["weigh carefully the consequences of my actions","mind","O","w"],
+["avoid saying 'no' because I fear unpleasant consequences","mind","O","w"],
+["believe others will not anticipate or fulfill my needs","mind","O","w"],
+["think showing feelings is either useless or dangerous","mind","O","w"],
+["strive to act as a 'good' person should","mind","O","h"],
+["give myself or others a second chance","mind","O","h"],
+["experience feedback as an attack or a demand to change","mind","O","h"],
+["value other people's opinions over my own","mind","O","h"],
+// HEART (O)
+["crave yet fear intimacy","heart","O","w"],
+["avoid feeling my bad or uncomfortable feelings","heart","O","w"],
+["hide my anger when I think I am being used or abused","heart","O","w"],
+["hide my shortcomings and my vulnerabilities","heart","O","w"],
+["feel sad, hurt or unloved when I don't get the closeness I expect","heart","O","h"],
+["find myself there for everyone, while no one is there for me","heart","O","h"],
+["become sexual more for my partner than for myself","heart","O","h"],
+["interact on an intimate level from the first meeting","heart","O","h"],
+["find myself concerned about rejection, ridicule or abandonment","heart","O","h"],
+["find myself unable to tolerate other people's pain or anger","heart","O","h"],
+// SOCIAL (O)
+["find myself answering a question with a question","social","O","w"],
+["pretend I care less than I do about how others feel about me","social","O","w"],
+["am more critical of loved ones than of strangers","social","O","w"],
+["suspect the motives of those who approach me for friendship","social","O","w"],
+["second guess what others expect from me and act it out","social","O","w"],
+["believe others know what I need but ignore it on purpose","social","O","w"],
+["know better what I need when I am alone, than in company","social","O","h"],
+["find myself self-disclosing and regretting it later","social","O","h"],
+["find myself depleted from taking care of others","social","O","h"],
+["go to great lengths to get others to like me","social","O","h"],
+// SPIRIT (O)
+["think life is a problem to be solved, not to be enjoyed","spirit","O","w"],
+["believe 'forgiveness' is 'forgetting'","spirit","O","w"],
+["find myself wishing for 'a map of life'","spirit","O","w"],
+["doubt anyone can really know another","spirit","O","w"],
+["believe the 'truth shall set you free'","spirit","O","h"],
+["give up easily","spirit","O","h"],
+["feel watched, evaluated and judged","spirit","O","h"],
+["think I will be held accountable for my emotions","spirit","O","h"],
+["believe 'love heals all'","spirit","O","h"],
+["worry about not being loved by others for who I am","spirit","O","h"],
+];
+
+const bodyQuestions = [
+["suffer from skin-related disorders or difficulties","body","I","f"],
+["suffer from respiratory disorders or difficulties","body","I","f"],
+["suffer from allergies, rashes or acne","body","I","f"],
+["suffer from eye, ear, nose or mouth disorders or difficulties","body","I","f"],
+["suffer from digestive disorders or difficulties","body","I","f"],
+["suffer from muscle, joint, skeletal or spinal ailments or disorders","body","C","f"],
+["suffer from erratic sleeping or eliminating patterns","body","C","f"],
+["suffer from headaches","body","C","f"],
+["clench or grit my teeth","body","C","f"],
+["experience difficulty with memory or concentration","body","C","f"],
+["suffer from heart-related ailments or difficulties","body","O","f"],
+["suffer from reproductive-organ related ailments or difficulties","body","O","f"],
+["suffer from sexual inhibitions or difficulties","body","O","f"],
+["suffer from circulatory disorders or difficulties","body","O","f"],
+["use substances or behaviors to control physical or emotional pain","body","O","f"],
+];
+
+const allQuestions = psychQuestions.concat(bodyQuestions).map((q, i) => ({
+  id: i, text: q[0], domain: q[1], style: q[2], type: q[3]
+}));
+
+const domainNames = { mind: "Mind", heart: "Heart", social: "Social", spirit: "Spirit", body: "Body" };
+const domainOrder = ["mind","heart","social","spirit","body"];
+const domainTotal = {};
+domainOrder.forEach(d => { domainTotal[d] = allQuestions.filter(q => q.domain === d).length; });
+const styleOrder = ["I","C","O"];
+
+// ---------- BRICK WALL ASSIGNMENT ----------
+// Every question owns one brick in its section's cylindrical band (5 rows per section).
+// Bricks-per-row = section total / 5 (6 for the 30-question sections, 3 for Body's 15).
+// Assignment uses each question's canonical (unshuffled) order within its domain, so a
+// brick's identity is stable no matter what order the person answers questions in.
+const BRICK_ROWS_PER_SECTION = 5;
+const brickAssignment = {}; // keyed by question.id -> { domain, row, col, bricksPerRow }
+domainOrder.forEach(domain => {
+  const list = allQuestions.filter(q => q.domain === domain);
+  const bricksPerRow = domainTotal[domain] / BRICK_ROWS_PER_SECTION;
+  list.forEach((q, idx) => {
+    brickAssignment[q.id] = {
+      domain,
+      row: Math.floor(idx / bricksPerRow),
+      col: idx % bricksPerRow,
+      bricksPerRow
+    };
+  });
+});
+
+const domainColors = { mind: 0x5B6ABF, heart: 0xC0455E, social: 0xD98A3D, spirit: 0x7A4FB5, body: 0x4F8F6B };
+
+function hexColor(intColor) {
+  return "#" + intColor.toString(16).padStart(6, "0");
+}
+
+function renderDomainLegend(containerId) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  el.innerHTML = domainOrder.map(d =>
+    `<span class="domain-legend-item"><span class="domain-legend-swatch" style="background:${hexColor(domainColors[d])};"></span>${domainNames[d]}</span>`
+  ).join("");
+}
+
+// Maps a -2..2 boundary score onto a 0..1 opacity, with 0.5 (the starting value) at score 0.
+function opacityForScore(score) {
+  const s = Math.max(-2, Math.min(2, score));
+  return Math.max(0, Math.min(1, 0.5 + s * 0.25));
+}
+
+const answerValues = ["Always","Often","Sometimes","Seldom","Never"];
+
+function scoreValue(answer, type) {
+  const idx = answerValues.indexOf(answer); // 0..4
+  if (type === "w") return [2,1,0,-1,-2][idx];
+  if (type === "h") return [-2,-1,0,1,2][idx];
+  if (type === "f") return [4,3,2,1,0][idx]; // frequency, higher = more symptomatic
+  return 0;
+}
+
+function boundaryScoreForAnswer(type, answerLabel) {
+  if (type === "f") return 2 - scoreValue(answerLabel, "f"); // invert frequency onto the -2..2 boundary scale
+  return scoreValue(answerLabel, type);
+}
+
+// ---------- PROFILE TEXT ----------
+// Tier A = healthy/normalized, Tier B = moderate wall-or-hole deviation, Tier C = strong wall-or-hole deviation.
+// (Each tier's text is written to cover either direction of imbalance, so direction doesn't matter — only magnitude.)
+const categoryProfiles = {
+  mind: {
+    I: {
+      A: "You have a positive outlook in life and trust yourself to cope with it. You believe you matter and deserve as much as anyone else. You know what your rights are and feel entitled to them.",
+      B: "You have doubts about your importance and may believe others deserve or get more than you do. You see yourself as different from others, either more or less implicated and tend to model yourself after other people. You have dependency issues.",
+      C: "You hold extreme beliefs about your self worth or your value to others. You probably either believe yourself to be completely insignificant or totally central to everything. You find yourself either avoiding or developing dependencies."
+    },
+    C: {
+      A: "You see yourself and others as ready and able to cope with life and to be held 'response able' and accountable for it. You understand what you can and cannot control.",
+      B: "You may confuse the benefits of having 'power over yourself' with the futility of 'having power' over others. You tend to feel either over or under competent/achieving in many areas of your life and spend too little or too much energy trying to control what you can. Traditions, rituals, points of order or repetitions or substances are means you use to feel in charge.",
+      C: "You are probably a 'Control Freak' and harbor a constellation of irrational ideas and/or behaviors and a clouded sense of responsibility. You do not know how to problem solve or make decisions that are of benefit to you and others. Substance abuse or addictive behaviours are in evidence."
+    },
+    O: {
+      A: "You are aware of who you are and what you need, believing yourself to be a good and valuable person. You feel appropriately close to some people and distanced from others. You are willing to risk the 'pain of honesty' by speaking your 'truth' because you believe yourself and others to be basically lovable.",
+      B: "You have difficulties balancing your awareness of self with others. You may either come too close or remain too far from others. You fear not being loved and either need or abhor others confirming your opinions or validating your feelings.",
+      C: "You may either under value yourself and over value others or overestimate yourself at the expense of others. You may think yourself either over or under loved and your idea of intimacy is either 'absence' or 'enmeshment'. You obscure your fears with various addictions."
+    }
+  },
+  heart: {
+    I: {
+      A: "You basically feel worthy, valued and trusting towards yourself and others.",
+      B: "No matter how hard you try, you feel either unimportant and disregarded or uncomfortably pivotal. You tend to find yourself either isolated or in the thick of things, but never where you would like to be. Feeling dependent is an issue for you.",
+      C: "Your sense of your value to yourself and to others and your sense of belongingness are distorted; you either feel you matter to no one or you fear you may matter to everyone. You substitute addiction for unresolved dependencies."
+    },
+    C: {
+      A: "You feel competent and in the 'driver's seat' of your life and take responsibility for your feelings.",
+      B: "You try to control yourself and others through feelings, by either over or under estimating your's or their competence and power. You may resort to seduction or withhold your feelings and engage in emotional blackmail. Medicating your feelings is a temptation which may be difficult to admit.",
+      C: "You have a tendency to either explode or implode with your emotions, experiencing the world either as excruciatingly intense or as depressingly numb. Medicating your feelings is a pivotal issue."
+    },
+    O: {
+      A: "You feel caring of yourself and others. You are willing to feel your feelings, trust them and share them appropriately. You are able to feel empathy for yourself and others and engage in honest and open expressions of feelings. You welcome 'into me see'.",
+      B: "You both fear and crave intimacy and either over or under experience and express your feelings. You are uncomfortable with intimacy and react to it, by feeling unloved or irresistible, by coming in too close or withdrawing too far, for connection to occur. Beware of addiction as a means to avoid discomfort and pain.",
+      C: "Your life unfolds on two opposite sides of the emotional continuum: you either feel the need to be numb or feel engulfed in intense emotionality. You either please others at your expense or you gratify yourself at the expense of others. You never feel loved or you feel disproportionately adored, creating a world either full of ridicule and abandonment or one devoid of opposition and filled with enmeshments."
+    }
+  },
+  social: {
+    I: {
+      A: "You feel implicated in your relationships. You cope effectively in social situations and usually get your needs met without harming others. You find yourself mattering to others and you have long term loyal interdependent relationships.",
+      B: "Whether you find yourself on the outside looking in, or trapped on the inside longing to get out, you are conflicted about your significance in relationships. You are having difficulties finding a suitable 'crowd' and may easily substitute addiction for unresolved dependency needs.",
+      C: "Either you wish to be 'in' with everyone, terrified of being left out, or you withdraw from everyone, dreading notice. In any case you are suffering, and trying to allay this with addiction to some substance or behaviour."
+    },
+    C: {
+      A: "The power in your relationships is mindfully balanced and you generally behave in an assertive fashion and prefer collaboration as a method to resolve conflict. You do not seek power over others nor do you easily give your power away.",
+      B: "You believe that you may change others and feel changed by them. You are conflicted about power in relationships and are blocked by manifestations of shame and guilt. You tend to pigeon hole people and have difficulties knowing who your friends are. You are either too dependent or independent in your relationships.",
+      C: "In your relationships you will either abdicate all responsibility or feel the need to be in charge of everything. Your social connections are either dominant or submissive and addiction may be your strongest 'friend' or 'enemy'."
+    },
+    O: {
+      A: "You are honest, direct and warm in your interactions with others and you expect to be treated in kind. You understand and practice forgiveness of yourself and others and are experienced as genuine and authentic by others.",
+      B: "You have a tendency to assume facts and hide your truth from yourself and others, because you believe it hurts people. You have doubts about how lovable you are and because you do not know yourself, you resort to social dishonesty and information management in order to further to hide yourself.",
+      C: "Either you experience an absence of loving, intimacy or closeness or you incessantly, but with no success, find yourself chasing after one love or another."
+    }
+  },
+  spirit: {
+    I: {
+      A: "Fundamentally you trust yourself and others to have a place in the world and overall you trust and feel connected to the universe.",
+      B: "You are conflicted about your place in the universe and the meaning of your life and death; you either feel yourself 'outside' of your life or so implicated that you can not find yourself. You are looking for a 'safety blanket'.",
+      C: "You 'live' in an unrealistic 'universe'; it is either overly hostile or you lack a sense of it's pitfalls. You are either alienated from the world or you believe that you have the answer to save it. You rely on behaviours or substances to feel safe in the world."
+    },
+    C: {
+      A: "You explore the world with curiosity and feel up to the challenges it offers. You relate well to the Serenity Prayer \u2014 give me the courage to change what I can, the strength to accept what I can't change, and the wisdom to know the difference.",
+      B: "You may fear the challenges of life and be unclear as to your responsibilities in it. You could benefit from the Serenity Prayer \u2014 give me the courage to change what I can, the strength to accept what I can't change, and the wisdom to know the difference.",
+      C: "Your sense of what may be controlled and how you experience it, is unrealistic and harmful to you. You may either blame 'everyone' else or feel completely responsible for 'everything', either trying to control everything or nothing."
+    },
+    O: {
+      A: "You give yourself permission to be who you are, you feel yourself unique and special on one hand and like everyone else, a part of it all on the other. You love yourself and others and feel connected to the universe and accepting of life and death.",
+      B: "You tend to feel disconnected from yourself and the 'universe' and may react either by doing anything possible to redeem yourself or give up and choose perdition.",
+      C: "You are closed to yourself and to the universe. You are either 'not in it or of it' or you are 'all of it and no more'."
+    }
+  }
+};
+
+const bodyProfiles = {
+  I: "Your score indicates that your body, as a boundary, is your weakest link. It does not fit comfortably into the world and your external environment is not 'user friendly', for you. This may reflect your own sense of 'belongingness', comfort and trust, in yourself and in the world. You may wish to make friends with the air you breathe or the food you eat and understand, you have as much right to be here as the trees.",
+  C: "Your score indicates that your body is struggling to provide or maintain control and may not be uniformly competent at it. You may be carrying around a lot of 'weight', taxing your framework and your stamina. Your body may be reflecting back to you, your own issues of power and competence. You are a tough master. You may wish to visualize yourself, putting down your burdens and permitting yourself to ask for help.",
+  O: "Your score indicates that your body may be managing your emotional pain for you. A 'broken heart', 'blood running cold' or a circulatory system that does not deliver the nourishment, are all roadblocks to connecting, to loving or being loved. Think lovingly of these areas and of your reproductive organs; they are the places in your body that carry the seeds and fruits of intimacy and the future. Be in tune with who you let in close and who you keep away."
+};
+
+// Overall/general narrative, chosen by the tier (A/B/C) most of your 12 mind/heart/social/spirit categories fall into.
+const generalProfiles = {
+  A: {
+    label: "Moderate",
+    text: "You have a positive outlook on life and trust yourself to cope with what it may bring. You believe you matter and deserve as much as anyone else. You know what your rights are and feel entitled to them. You basically feel worthy, valued and trusting towards yourself and others. You feel implicated in your relationships. You cope effectively in social situations and usually get your needs met without harming others. You find yourself mattering to those around you and you tend to have long term, loyal relationships.\n\nYou explore the world with curiosity and feel up to the challenges it offers. You relate well to the Serenity Prayer \u2014 give me the serenity to change what I can, the courage to accept what I can't change, and the wisdom to know the difference. Fundamentally you think yourself and others to be entitled to their place in the world and overall, you trust and feel connected to the universe. You see yourself and others as ready and able to cope with life and to be held 'response able' and accountable for it. You understand what you can and cannot control. You feel competent and in the 'driver's seat' of your life and take responsibility for your feelings.\n\nThe power in your relationships is mindfully balanced and you generally behave in assertive ways, preferring collaboration as a method of conflict resolution. You do not seek power over others nor do you easily give your own power away. You are basically aware of who you are, what you need, believing yourself to be a good and valuable person. You feel appropriately close to some people and distanced from others. You are willing to risk the 'pain of honesty' by speaking your 'truth' because you believe yourself and others to be basically lovable. You feel caring of yourself and others and are willing to feel your feelings, trust them and share them appropriately. You are able to empathise with yourself and others and are desirous to engage in honest and open expressions of feelings. You welcome 'into me see' and can be trusted to honor it.\n\nYou are honest, direct, firm and warm in your interactions with others and you expect to be treated in kind. You understand and practice forgiveness of yourself and others, and they in turn experience you as genuine and authentic. You give yourself permission to be who you are and if you feel yourself to be unique and special on one hand, you also know you are just like everyone else, on the other. You love yourself and others and feel connected to the universe in an acceptance of life and death."
+  },
+  B: {
+    label: "Needs Work",
+    text: "You have doubts about your importance and may believe others deserve or get more than you do. You see yourself as different from others, either more or less implicated and tend to model yourself after other people. No matter how hard you try, you feel either unimportant and disregarded or uncomfortably pivotal. You tend to find yourself either isolated or in the thick of things, but never where you would like to be.\n\nFeeling like you can belong and can depend on others, is an issue for you. Finding yourself on the 'outside looking in', or trapped on the inside longing to get out, you are uncertain about your significance in relationships. You are having difficulties finding a suitable 'crowd' and may easily substitute addiction for unresolved dependency needs. You are conflicted about your place in the universe and the meaning of your life and death; you either feel yourself 'not a part' of your life or so grossly implicated that you can not sort yourself apart from others\u2014and all along you are looking for a 'safety blanket'. You may confuse the benefits of having 'power over yourself' with the futility of 'having power' over others. You tend to feel either over or under competent or achieving in many areas of your life and spend too little or too much energy trying to control what you cannot. Traditions, rituals, familiarity, points of order or various substances are some of the means you use to try to feel yourself in charge. You attempt to control yourself and others through feelings, by either over or under estimating your's or their competence and power. You may resort to seduction or withhold your feelings and engage in emotional blackmail. Medicating your feelings is a temptation or a behaviour you may find difficult to admit. Beware of addictions as a means to avoid discomfort and pain.\n\nYou believe that you may change others because you feel changed by them. You are conflicted about power in relationships and are blocked by various manifestations of shame and guilt. You tend to pigeon hole people and have difficulties knowing who your friends are. You are either too dependent or independent in your relationships. You may fear the challenges of life and be unclear as to your responsibilities for it. You could benefit from the Serenity Prayer: give me the serenity to change what I can, the strength to accept what I can't change and the wisdom to know the difference. You have difficulties balancing your awareness of self with others. You may either come too close or remain too far from those around you. You fear not being loved, and either need or abhor others confirming your opinions or validating your feelings. You have a tendency to assume facts and hide your truth from yourself and others, because you believe that openness and honesty hurt people, including yourself. You have doubts about how lovable you are and because you do not know yourself, you resort to social dishonesty and information management in order to further hide yourself. This creates a vicious cycle of hiding and lying and then hiding the lie and so on, all the more increasing your dread of being found out. You tend to feel disconnected from yourself and the 'universe' and may react either by doing anything possible to redeem yourself or give up and choose perdition. You feel yourself to be an impostor, part of the universe on false pretenses."
+  },
+  C: {
+    label: "Critical",
+    text: "You hold extreme beliefs about your self worth or your value to others. You may either believe yourself to be completely insignificant or totally central to everything. You find yourself either avoiding or developing dependencies. Your sense of your value to yourself and to others and your sense of belongingness are basically distorted: you either feel you matter to no one or you fear you may matter to everyone. You substitute addiction for unresolved dependencies. Either you wish to be 'in' with everyone, terrified from being left out, or you withdraw from everyone, dreading notice. In any case you are suffering, and you are most likely trying to allay this with addiction to some substance or behaviour. You 'live' in an unrealistic 'universe'; it is either overly hostile or you lack a particular sense of it's pitfalls. You rely on repetitious and familiar behaviours or substances to feel safe and anchored in the world. You are either alienated from the world or you believe that you have the answers to save it. You are very likely to be a 'Control Freak' and harbor a constellation of irrational ideas and/or behaviors as well as a clouded and confused sense of responsibility. You do not know how to problem solve or make decisions that are of benefit to you and others. Substance abuse or other addictive behaviours are in evidence. Nothing is enough.\n\nYou have a tendency to either explode or implode with your emotions, experiencing the world either as excruciatingly intense or as depressingly numb. In your relationships you will either abdicate all responsibility or feel the need to be in charge of everything. Your social connections are either dominant or submissive and addiction may be your strongest 'friend' or 'enemy'. Medicating your feelings is a pivotal issue. Your sense of what may be controlled and how you experience it, is unrealistic and harmful to you and to those around you. You may either blame 'everyone' else or feel completely responsible for 'everything', either trying to control everything or control nothing.\n\nMost likely you under value yourself and over value others or overestimate yourself at the expense of others. Similarly, you may think yourself either over or under loved and your idea of intimacy is either 'absence' or 'enmeshment'. You obscure your fears with various addictions and your life unfolds on two opposite sides of the emotional continuum: you either feel the need to be numb or engulfed in intense emotionality. You either please others at your expense or you gratify yourself at the expense of others. You never feel loved or you may feel disproportionately adored, creating a world either full of ridicule and abandonment or one devoid of opposition and filled with suffocating connections. Either you experience an absence of loving, intimacy or closeness or you incessantly, but with no success, find yourself chasing after one or the other. You are closed to yourself and to the universe. You are either 'not in it or of it' or you are 'all of it and no more'."
+  }
+};
+
+// Maps our existing lean/strength scoring onto the A/B/C tiers (magnitude-based, direction-agnostic).
+function tierForScore(avg) {
+  const lean = leanCategory(avg);
+  if (lean === "normalized") return "A";
+  return leanStrength(avg) === "strong" ? "C" : "B";
+}
+
+function leanCategory(avg) {
+
+  if (avg <= -0.4) return "hole";
+  if (avg >= 0.4) return "wall";
+  return "normalized";
+}
+function leanStrength(avg) {
+  const a = Math.abs(avg);
+  if (a >= 1.2) return "strong";
+  if (a >= 0.4) return "moderate";
+  return "mild";
+}
+function bodyBucket(avg) {
+  if (avg < 1) return "minimal";
+  if (avg < 2) return "mild";
+  if (avg < 3) return "moderate";
+  return "significant";
+}
+
+// ---------- 3D SCENE: avatar + cylindrical brick wall ----------
+const ROW_HEIGHT = 1;
+const TOTAL_ROWS = domainOrder.length * BRICK_ROWS_PER_SECTION; // 25
+const WALL_RADIUS = 6;
+const WALL_HEIGHT = TOTAL_ROWS * ROW_HEIGHT;
+
+let scene3d, camera3d, renderer3d, wallGroup, avatarGroup;
+const brickMeshes = {}; // brickMeshes[domain][row][col] = THREE.Mesh
+let cameraAngle = 0.6;
+let targetAngle = 0.6;
+let cameraTilt = 0.15;
+let focusedBrickY = 0;
+let targetBrickY = 0;
+let autoRotate = true;
+let dragging = false;
+let lastPointerX = 0, lastPointerY = 0;
+
+function domainRowBase(domain) {
+  return domainOrder.indexOf(domain) * BRICK_ROWS_PER_SECTION;
+}
+
+function buildAvatar() {
+  const group = new THREE.Group();
+  const skin = new THREE.MeshStandardMaterial({ color: 0x2c2c2a, roughness: 0.7 });
+
+  const torsoH = WALL_HEIGHT * 0.34;
+  const legH = WALL_HEIGHT * 0.30;
+  const headR = WALL_HEIGHT * 0.075;
+  const torso = new THREE.Mesh(new THREE.CylinderGeometry(WALL_RADIUS * 0.22, WALL_RADIUS * 0.27, torsoH, 16), skin);
+  const legOffset = WALL_RADIUS * 0.12;
+  const legGeom = new THREE.CylinderGeometry(WALL_RADIUS * 0.09, WALL_RADIUS * 0.09, legH, 12);
+  const legL = new THREE.Mesh(legGeom, skin);
+  const legR = new THREE.Mesh(legGeom, skin);
+  const armGeom = new THREE.CylinderGeometry(WALL_RADIUS * 0.07, WALL_RADIUS * 0.07, torsoH * 0.9, 12);
+  const armL = new THREE.Mesh(armGeom, skin);
+  const armR = new THREE.Mesh(armGeom, skin);
+  const head = new THREE.Mesh(new THREE.SphereGeometry(headR, 20, 16), skin);
+
+  const baseY = legH / 2;
+  legL.position.set(-legOffset, baseY, 0);
+  legR.position.set(legOffset, baseY, 0);
+  torso.position.set(0, legH + torsoH / 2, 0);
+  armL.position.set(-(WALL_RADIUS * 0.22 + WALL_RADIUS * 0.08), legH + torsoH * 0.55, 0);
+  armR.position.set(WALL_RADIUS * 0.22 + WALL_RADIUS * 0.08, legH + torsoH * 0.55, 0);
+  head.position.set(0, legH + torsoH + headR * 1.05, 0);
+
+  [torso, legL, legR, armL, armR, head].forEach(m => group.add(m));
+  group.position.y = -WALL_HEIGHT / 2; // center vertically within the wall's local space
+  return group;
+}
+
+// Shared angle-step math for a given row (so wall-building and camera-centering
+// always agree on exactly where each brick's arc sits).
+function brickRowGeometry(bricksPerRow, row) {
+  const angleStep = (Math.PI * 2) / bricksPerRow;
+  const rowAngleOffset = (row % 2 === 0) ? 0 : angleStep / 2;
+  return { angleStep, rowAngleOffset };
+}
+
+function buildBrickWall() {
+  const group = new THREE.Group();
+  const edgeMat = new THREE.LineBasicMaterial({ color: 0x2c2c2a });
+
+  domainOrder.forEach(domain => {
+    brickMeshes[domain] = [];
+    const bricksPerRow = domainTotal[domain] / BRICK_ROWS_PER_SECTION;
+
+    for (let row = 0; row < BRICK_ROWS_PER_SECTION; row++) {
+      brickMeshes[domain][row] = [];
+      const globalRow = domainRowBase(domain) + row;
+      const y = globalRow * ROW_HEIGHT + ROW_HEIGHT / 2 - WALL_HEIGHT / 2;
+      const { angleStep, rowAngleOffset } = brickRowGeometry(bricksPerRow, row);
+      const thetaLength = angleStep; // no gap — bricks tile edge-to-edge
+      const radialSegs = Math.max(6, Math.round(bricksPerRow * 1.7)); // smooth curve per brick
+
+      for (let col = 0; col < bricksPerRow; col++) {
+        const centerAngle = col * angleStep + rowAngleOffset + angleStep / 2;
+        const thetaStart = centerAngle - thetaLength / 2;
+
+        const geom = new THREE.CylinderGeometry(
+          WALL_RADIUS, WALL_RADIUS, ROW_HEIGHT * 0.85,
+          radialSegs, 1, true, thetaStart, thetaLength
+        );
+        const mat = new THREE.MeshStandardMaterial({
+          color: domainColors[domain],
+          transparent: true,
+          opacity: 0.5,
+          roughness: 0.85,
+          side: THREE.DoubleSide
+        });
+        const brick = new THREE.Mesh(geom, mat);
+        brick.position.y = y;
+
+        const edges = new THREE.LineSegments(new THREE.EdgesGeometry(geom, 20), edgeMat);
+        brick.add(edges);
+
+        group.add(brick);
+        brickMeshes[domain][row][col] = brick;
+      }
+    }
+  });
+
+  return group;
+}
+
+function ensureScene() {
+  if (scene3d) return;
+  scene3d = new THREE.Scene();
+  camera3d = new THREE.PerspectiveCamera(62, 1, 0.1, 200);
+  renderer3d = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer3d.setClearColor(0x000000, 0);
+
+  scene3d.add(new THREE.AmbientLight(0xffffff, 0.65));
+  const dir = new THREE.DirectionalLight(0xffffff, 0.7);
+  dir.position.set(4, 8, 6);
+  scene3d.add(dir);
+
+  wallGroup = buildBrickWall();
+  avatarGroup = buildAvatar();
+  const rig = new THREE.Group();
+  rig.add(wallGroup);
+  rig.add(avatarGroup);
+  scene3d.add(rig);
+
+  const canvas = renderer3d.domElement;
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
+  canvas.style.cursor = "grab";
+  canvas.addEventListener("pointerdown", (e) => {
+    dragging = true;
+    autoRotate = false;
+    lastPointerX = e.clientX;
+    lastPointerY = e.clientY;
+    canvas.style.cursor = "grabbing";
+  });
+  window.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - lastPointerX;
+    const dy = e.clientY - lastPointerY;
+    cameraAngle += dx * 0.01;
+    cameraTilt = Math.max(-0.6, Math.min(0.6, cameraTilt + dy * 0.005));
+    lastPointerX = e.clientX;
+    lastPointerY = e.clientY;
+  });
+  window.addEventListener("pointerup", () => {
+    dragging = false;
+    canvas.style.cursor = "grab";
+  });
+
+  requestAnimationFrame(renderLoop3d);
+}
+
+function renderLoop3d() {
+  requestAnimationFrame(renderLoop3d);
+  if (!renderer3d) return;
+
+  if (autoRotate && !dragging) {
+    cameraAngle += 0.0025;
+    targetAngle = cameraAngle; // stay in sync so stopping later doesn't jump
+    focusedBrickY += (targetBrickY - focusedBrickY) * 0.08;
+  } else if (!dragging) {
+    // ease toward the fixed, centered target (a specific brick, or center if none)
+    cameraAngle += (targetAngle - cameraAngle) * 0.08;
+    focusedBrickY += (targetBrickY - focusedBrickY) * 0.08;
+  }
+
+  const dist = WALL_RADIUS * 4.0;
+  camera3d.position.set(
+    dist * Math.sin(cameraAngle) * Math.cos(cameraTilt),
+    WALL_HEIGHT * 0.15 + dist * Math.sin(cameraTilt),
+    dist * Math.cos(cameraAngle) * Math.cos(cameraTilt)
+  );
+  camera3d.lookAt(0, focusedBrickY, 0);
+  renderer3d.render(scene3d, camera3d);
+}
+
+// Starts the camera spinning again (used while a question is unanswered).
+function startRotating() {
+  autoRotate = true;
+  targetBrickY = 0;
+}
+
+// Stops rotation and eases the camera to face the exact brick for (domain, row, col).
+function centerOnBrick(domain, row, col) {
+  const bricksPerRow = domainTotal[domain] / BRICK_ROWS_PER_SECTION;
+  const { angleStep, rowAngleOffset } = brickRowGeometry(bricksPerRow, row);
+  targetAngle = col * angleStep + rowAngleOffset + angleStep / 2;
+  const globalRow = domainRowBase(domain) + row;
+  targetBrickY = globalRow * ROW_HEIGHT + ROW_HEIGHT / 2 - WALL_HEIGHT / 2;
+  autoRotate = false;
+}
+
+// Moves the (single, shared) renderer canvas into the given container and resizes it to fit.
+let currentSceneContainerId = null;
+
+function mountScene(containerId) {
+  ensureScene();
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  if (renderer3d.domElement.parentNode !== container) {
+    container.appendChild(renderer3d.domElement);
+  }
+  currentSceneContainerId = containerId;
+  resizeScene(container);
+}
+
+function resizeScene(container) {
+  if (!renderer3d) return;
+  const size = Math.max(80, container.clientWidth || container.getBoundingClientRect().width || 220);
+  renderer3d.setSize(size, size, false);
+  camera3d.aspect = 1;
+  camera3d.updateProjectionMatrix();
+}
+
+window.addEventListener("resize", () => {
+  if (!currentSceneContainerId) return;
+  const container = document.getElementById(currentSceneContainerId);
+  if (container) resizeScene(container);
+});
+
+// Resets every brick back to the starting 50% opacity.
+function resetAllBricks() {
+  ensureScene();
+  domainOrder.forEach(domain => {
+    const bricksPerRow = domainTotal[domain] / BRICK_ROWS_PER_SECTION;
+    for (let row = 0; row < BRICK_ROWS_PER_SECTION; row++) {
+      for (let col = 0; col < bricksPerRow; col++) {
+        brickMeshes[domain][row][col].material.opacity = 0.5;
+      }
+    }
+  });
+}
+
+// Applies the effect of one answered question to its own single assigned brick.
+function updateBrickForAnswer(question, answerLabel) {
+  ensureScene();
+  const assign = brickAssignment[question.id];
+  if (!assign) return;
+  const score = boundaryScoreForAnswer(question.type, answerLabel);
+  const opacity = opacityForScore(score);
+  brickMeshes[assign.domain][assign.row][assign.col].material.opacity = opacity;
+}
+
+
+// ---------- STATE ----------
+let questions = [];       // current section's question list
+let answers = [];         // answers for the current section's list (parallel to questions)
+let answersByQid = {};    // persists across sections: question.id -> answer label
+let completedSections = {}; // domain -> true once all its questions are answered
+let currentIndex = 0;
+let questionOrderMode = "ordered"; // "ordered" | "shuffled"
+let lastResultsSnapshot = null;
+
+function setQuestionOrder(mode) {
+  questionOrderMode = mode;
+  document.getElementById("order-btn-ordered").classList.toggle("active", mode === "ordered");
+  document.getElementById("order-btn-shuffled").classList.toggle("active", mode === "shuffled");
+}
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function startQuiz() {
+  resetAllBricks();
+  answersByQid = {};
+  completedSections = {};
+  domainOrder.forEach(d => { completedSections[d] = false; });
+  document.getElementById("intro-screen").classList.add("hidden");
+  document.getElementById("start-over-btn").classList.remove("hidden");
+  document.getElementById("start-bar").classList.add("hidden");
+  document.body.classList.remove("has-start-bar");
+  showSectionSelect();
+}
+
+function showSectionSelect() {
+  document.getElementById("quiz-screen").classList.add("hidden");
+  document.getElementById("section-select-screen").classList.remove("hidden");
+  renderSectionSelectButtons();
+  mountScene("section-scene-mount");
+  renderDomainLegend("section-domain-legend");
+
+  const allDone = domainOrder.every(d => completedSections[d]);
+  document.getElementById("section-select-heading").textContent =
+    allDone ? "All sections complete!" : "Choose a section to begin";
+  if (allDone) showResults();
+}
+
+function renderSectionSelectButtons() {
+  const container = document.getElementById("section-select-buttons");
+  container.innerHTML = domainOrder.map(domain => {
+    const done = completedSections[domain];
+    return `
+      <button type="button" class="section-select-btn" ${done ? "disabled" : ""} onclick="startSection('${domain}')">
+        <span class="section-select-label">
+          <span class="section-select-swatch" style="background:${hexColor(domainColors[domain])};"></span>
+          ${domainNames[domain]}
+        </span>
+        ${done ? '<span class="checkmark">&#10003;</span>' : ""}
+      </button>
+    `;
+  }).join("");
+}
+
+function startSection(domain) {
+  const list = allQuestions.filter(q => q.domain === domain);
+  questions = questionOrderMode === "shuffled" ? shuffle(list) : list.slice();
+  answers = questions.map(q => (answersByQid[q.id] !== undefined ? answersByQid[q.id] : null));
+  currentIndex = 0;
+  document.getElementById("section-select-screen").classList.add("hidden");
+  document.getElementById("quiz-screen").classList.remove("hidden");
+  renderQuestion();
+  mountScene("quiz-scene-mount");
+  renderDomainLegend("quiz-domain-legend");
+}
+
+
+function renderQuestion() {
+  const q = questions[currentIndex];
+  document.getElementById("q-text").textContent = "I " + q.text;
+  document.getElementById("progress-fill").style.width = ((currentIndex) / questions.length * 100) + "%";
+
+  const scaleEl = document.getElementById("q-scale");
+  scaleEl.innerHTML = "";
+  answerValues.forEach(label => {
+    const btn = document.createElement("button");
+    btn.textContent = label;
+    if (answers[currentIndex] === label) btn.classList.add("selected");
+    btn.onclick = () => selectAnswer(label);
+    scaleEl.appendChild(btn);
+  });
+
+  document.getElementById("back-btn").disabled = currentIndex === 0;
+  document.getElementById("next-btn").disabled = answers[currentIndex] === null;
+  document.getElementById("next-btn").textContent = currentIndex === questions.length - 1 ? "Finish section" : "Next";
+
+  let posInDomain = 0;
+  for (let i = 0; i <= currentIndex; i++) {
+    if (questions[i].domain === q.domain) posInDomain++;
+  }
+  document.getElementById("section-progress").textContent =
+    domainNames[q.domain] + ": question " + posInDomain + " of " + domainTotal[q.domain];
+
+  const assign = brickAssignment[q.id];
+  if (assign) {
+    if (answers[currentIndex] === null) {
+      startRotating();
+    } else {
+      centerOnBrick(assign.domain, assign.row, assign.col);
+    }
+  }
+}
+
+function selectAnswer(label) {
+  answers[currentIndex] = label;
+  answersByQid[questions[currentIndex].id] = label;
+  updateBrickForAnswer(questions[currentIndex], label);
+  renderQuestion();
+}
+
+function goNext() {
+  if (answers[currentIndex] === null) return;
+  if (currentIndex < questions.length - 1) {
+    currentIndex++;
+    renderQuestion();
+  } else {
+    completedSections[questions[0].domain] = true;
+    showSectionSelect();
+  }
+}
+
+function goBack() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    renderQuestion();
+  }
+}
+
+// Generic "jump to" helper: smooth-scrolls to any element by id.
+function jumpToAnchor(id) {
+  if (!id) return;
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function showResults() {
+  document.getElementById("quiz-screen").classList.add("hidden");
+  document.getElementById("section-select-screen").classList.add("hidden");
+  document.getElementById("results-screen").classList.remove("hidden");
+
+  // aggregate
+  const psychCats = {};   // key "domain-style" -> array of values
+  const bodyCats = {};    // key "style" -> array of values
+  const domainAll = {};   // key domain -> array of values (all styles combined, for the diagram)
+
+  allQuestions.forEach(q => {
+    const val = scoreValue(answersByQid[q.id], q.type);
+    if (q.domain === "body") {
+      bodyCats[q.style] = bodyCats[q.style] || [];
+      bodyCats[q.style].push(val);
+      domainAll.body = domainAll.body || [];
+      domainAll.body.push(val); // 0..4 frequency scale
+    } else {
+      const key = q.domain + "-" + q.style;
+      psychCats[key] = psychCats[key] || [];
+      psychCats[key].push(val);
+      domainAll[q.domain] = domainAll[q.domain] || [];
+      domainAll[q.domain].push(val); // -2..2 boundary scale
+    }
+  });
+
+  // domain-level scores for the diagram (all on a -2..2 boundary scale)
+  const domainScores = {};
+  domainOrder.forEach(domain => {
+    const vals = domainAll[domain] || [];
+    const avg = vals.reduce((a,b)=>a+b,0) / (vals.length || 1);
+    domainScores[domain] = domain === "body" ? (2 - avg) : avg; // invert body frequency so fewer symptoms = solid boundary
+  });
+
+  // overall score across every answered question, for the face's expression
+  const allBoundaryScores = allQuestions.map(q => boundaryScoreForAnswer(q.type, answersByQid[q.id]));
+  const overallScore = allBoundaryScores.reduce((a,b)=>a+b,0) / (allBoundaryScores.length || 1);
+
+  // build a portable snapshot of this result set (for saving to a file / comparing later)
+  const snapshotCategories = {};
+  domainOrder.filter(d => d !== "body").forEach(domain => {
+    styleOrder.forEach(style => {
+      const key = domain + "-" + style;
+      const vals = psychCats[key] || [];
+      const avg = vals.reduce((a,b)=>a+b,0) / (vals.length || 1);
+      snapshotCategories[key] = { avg: avg, lean: leanCategory(avg), strength: leanStrength(avg) };
+    });
+  });
+  styleOrder.forEach(style => {
+    const vals = bodyCats[style] || [];
+    const avg = vals.reduce((a,b)=>a+b,0) / (vals.length || 1);
+    snapshotCategories["body-" + style] = { avg: avg, bucket: bodyBucket(avg) };
+  });
+  const now = new Date();
+  lastResultsSnapshot = {
+    app: "The Boundary Questionnaire",
+    version: 1,
+    savedAt: now.toISOString(),
+    savedAtLabel: now.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" }),
+    overallScore: overallScore,
+    domainScores: domainScores,
+    categories: snapshotCategories
+  };
+  document.getElementById("compare-container").innerHTML = "";
+
+  mountScene("results-scene-mount");
+  renderDomainLegend("results-domain-legend");
+
+  const container = document.getElementById("results-container");
+  container.innerHTML = "";
+
+  const wallColor = "#993c1d", wallBg = "#faece7";
+  const holeColor = "#185fa5", holeBg = "#e6f1fb";
+  const normColor = "#3b6d11", normBg = "#eaf3de";
+
+  let leanCounts = { wall: 0, hole: 0, normalized: 0 };
+  let tierCounts = { A: 0, B: 0, C: 0 };
+  let bodyFlags = [];
+
+  container.innerHTML += '<h2 class="section-heading" id="section-mhss">Mind, heart, social & spirit</h2>';
+
+  domainOrder.filter(d => d !== "body").forEach(domain => {
+    styleOrder.forEach((style, styleIdx) => {
+      const key = domain + "-" + style;
+      const vals = psychCats[key] || [];
+      const avg = vals.reduce((a,b)=>a+b,0) / (vals.length || 1);
+      const lean = leanCategory(avg);
+      const strength = leanStrength(avg);
+      const tier = tierForScore(avg);
+      leanCounts[lean]++;
+      tierCounts[tier]++;
+
+      const label = domainNames[domain] + " (" + style + ")";
+      const desc = categoryProfiles[domain][style][tier];
+      let color, bg, scoreLabel;
+      if (lean === "wall") { color = wallColor; bg = wallBg; scoreLabel = "Wall (" + strength + ")"; }
+      else if (lean === "hole") { color = holeColor; bg = holeBg; scoreLabel = "Hole (" + strength + ")"; }
+      else { color = normColor; bg = normBg; scoreLabel = "Normalized"; }
+
+      // position on -2..2 scale mapped to 0-100%
+      const pct = ((avg + 2) / 4) * 100;
+
+      const card = document.createElement("div");
+      card.className = "result-card";
+      if (styleIdx === 0) card.id = "section-" + domain;
+      card.innerHTML = `
+        <div class="result-header">
+          <span class="result-title">${label}</span>
+          <span class="result-score" style="background:${bg}; color:${color};">${scoreLabel}</span>
+        </div>
+        <div class="bar-track"><div class="bar-mid"></div><div class="bar-fill" style="width:${pct}%; background:${color};"></div></div>
+        <p class="result-desc">${desc}</p>
+      `;
+      container.appendChild(card);
+    });
+  });
+
+  container.innerHTML += '<h2 class="section-heading" id="section-body">Body</h2>';
+  styleOrder.forEach(style => {
+    const vals = bodyCats[style] || [];
+    const avg = vals.reduce((a,b)=>a+b,0) / (vals.length || 1);
+    const bucket = bodyBucket(avg);
+    if (bucket === "moderate" || bucket === "significant") bodyFlags.push(style);
+    const pct = (avg / 4) * 100;
+    const bucketColor = { minimal: normColor, mild: "#854f0b", moderate: wallColor, significant: "#791f1f" }[bucket];
+    const bucketBg = { minimal: normBg, mild: "#faeeda", moderate: wallBg, significant: "#fcebeb" }[bucket];
+
+    const card = document.createElement("div");
+    card.className = "result-card";
+    card.innerHTML = `
+      <div class="result-header">
+        <span class="result-title">Body (${style})</span>
+        <span class="result-score" style="background:${bucketBg}; color:${bucketColor};">${bucket}</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:${pct}%; background:${bucketColor};"></div></div>
+      <p class="result-desc">${bodyProfiles[style]}</p>
+    `;
+    container.appendChild(card);
+  });
+
+  // overall/general profile: whichever tier (A/B/C) most of the 12 categories fall into
+  const dominantTier = Object.entries(tierCounts).sort((a,b) => b[1]-a[1])[0][0];
+  const general = generalProfiles[dominantTier];
+
+  let bodyText = "";
+  if (bodyFlags.length > 0) {
+    const names = bodyFlags.map(s => "Body (" + s + ")").join(" and ");
+    bodyText = "Physically, " + names + (bodyFlags.length > 1 ? " show" : " shows") + " a moderate-to-significant symptom pattern, which can be a sign that boundary stress is showing up in the body, not just the mind.";
+  } else {
+    bodyText = "Physically, your symptom patterns are generally mild across the board.";
+  }
+
+  const summary = document.createElement("div");
+  summary.className = "summary-card";
+  summary.id = "section-summary";
+  summary.innerHTML = `
+    <p style="font-weight:600; font-size:16px;">Overall profile &mdash; ${general.label}</p>
+    <p>Of your 12 mind/heart/social/spirit categories: ${tierCounts.A} are healthy (A), ${tierCounts.B} could use some work (B), and ${tierCounts.C} are in the critical range (C). Also, ${leanCounts.wall} lean wall, ${leanCounts.hole} lean hole, and ${leanCounts.normalized} are normalized.</p>
+    <p style="white-space: pre-line;">${general.text}</p>
+    <p>${bodyText}</p>
+  `;
+  container.insertBefore(summary, container.firstChild);
+}
+
+// Downloads the current results as a dated JSON file the person can keep and reload later.
+function saveResultsToFile() {
+  if (!lastResultsSnapshot) return;
+  const blob = new Blob([JSON.stringify(lastResultsSnapshot, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  const dateStr = lastResultsSnapshot.savedAt.slice(0, 10); // YYYY-MM-DD
+  a.href = url;
+  a.download = "boundary-results-" + dateStr + ".json";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+// Loads a previously saved results file and renders a comparison against today's results.
+function handleCompareFile(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function (ev) {
+    try {
+      const prev = JSON.parse(ev.target.result);
+      renderComparison(prev);
+    } catch (err) {
+      window.alert("Couldn't read that file \u2014 make sure it's a results file saved from this app.");
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = "";
+}
+
+function leanLabel(entry) {
+  if (!entry) return null;
+  if (entry.lean) return entry.lean === "wall" ? "Wall" : entry.lean === "hole" ? "Hole" : "Normalized";
+  return entry.bucket;
+}
+
+function renderComparison(prev) {
+  if (!lastResultsSnapshot) return;
+  const container = document.getElementById("compare-container");
+  const prevDate = prev.savedAtLabel || (prev.savedAt ? prev.savedAt.slice(0, 10) : "a previous save");
+
+  const delta = lastResultsSnapshot.overallScore - (prev.overallScore || 0);
+  let deltaText;
+  if (Math.abs(delta) < 0.15) deltaText = "about the same overall";
+  else if (delta > 0) deltaText = "leaning more toward wall than before";
+  else deltaText = "leaning more toward hole than before";
+
+  const changedLines = [];
+  Object.keys(lastResultsSnapshot.categories).forEach(key => {
+    const cur = lastResultsSnapshot.categories[key];
+    const old = prev.categories && prev.categories[key];
+    if (!old) return;
+    const curLabel = leanLabel(cur);
+    const oldLabel = leanLabel(old);
+    if (curLabel !== oldLabel) {
+      const parts = key.split("-");
+      const domain = parts[0], style = parts[1];
+      changedLines.push(domainNames[domain] + (style ? " (" + style + ")" : "") + ": " + oldLabel + " \u2192 " + curLabel);
+    }
+  });
+
+  container.innerHTML = `
+    <div class="compare-card">
+      <p class="compare-title">Compared to ${prevDate}</p>
+      <p>Overall, you're ${deltaText}.</p>
+      ${changedLines.length
+        ? `<p>Categories that shifted:</p><ul class="compare-list">${changedLines.map(l => "<li>" + l + "</li>").join("")}</ul>`
+        : `<p>No categories changed their overall lean since then.</p>`}
+    </div>
+  `;
+  container.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+
+function restart() {
+  document.getElementById("results-screen").classList.add("hidden");
+  document.getElementById("intro-screen").classList.remove("hidden");
+  document.getElementById("start-over-btn").classList.add("hidden");
+  document.getElementById("start-bar").classList.remove("hidden");
+  document.body.classList.add("has-start-bar");
+}
+
+function confirmStartOver() {
+  const ok = window.confirm("Start over? This clears your answers, photos, and results.");
+  if (ok) fullReset();
+}
+
+function fullReset() {
+  resetAllBricks();
+  questions = [];
+  answers = [];
+  answersByQid = {};
+  completedSections = {};
+  currentIndex = 0;
+  setQuestionOrder("ordered");
+  document.getElementById("quiz-screen").classList.add("hidden");
+  document.getElementById("section-select-screen").classList.add("hidden");
+  document.getElementById("results-screen").classList.add("hidden");
+  document.getElementById("intro-screen").classList.remove("hidden");
+  document.getElementById("start-over-btn").classList.add("hidden");
+  document.getElementById("start-bar").classList.remove("hidden");
+  document.body.classList.add("has-start-bar");
+}
+</script>
+</body>
+</html>
